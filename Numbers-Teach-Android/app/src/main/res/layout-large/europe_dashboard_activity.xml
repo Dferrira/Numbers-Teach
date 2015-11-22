@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".EuropeDashboardActivity"
+    android:baselineAligned="false">
+    <fragment
+        android:name="com.dferreira.numbers_teach.europe_dashboard.EuropeDashboardFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/europe_map"
+        tools:layout="@layout/europe_dashboard" />
+    <fragment
+        android:name="com.dferreira.numbers_teach.europe_dashboard.EuropeDashboardFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/country_details"
+        tools:layout="@layout/europe_dashboard" />
+</LinearLayout>

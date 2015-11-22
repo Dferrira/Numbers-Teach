@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/playerPanel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:background="@android:drawable/toast_frame"
+    android:gravity="center_vertical|center_horizontal">
+
+    <TextView
+        android:id="@+id/imageCounter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="@string/loading"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageButton
+        android:id="@+id/againBtn"
+        style="@style/buttons"
+        android:contentDescription="@string/content_description"
+        android:src="@android:drawable/ic_popup_sync" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        style="@style/buttons"
+        android:contentDescription="@string/content_description"
+        android:src="@android:drawable/ic_media_previous" />
+
+    <ImageButton
+        android:id="@+id/playAndPauseBtn"
+        style="@style/buttons"
+        android:contentDescription="@string/content_description"
+        android:src="@android:drawable/ic_media_pause" />
+
+    <ImageButton
+        android:id="@+id/nextBtn"
+        style="@style/buttons"
+        android:contentDescription="@string/content_description"
+        android:src="@android:drawable/ic_media_next" />
+
+    <ImageButton
+        android:id="@+id/stopBtn"
+        style="@style/buttons"
+        android:contentDescription="@string/content_description"
+        android:src="@android:drawable/ic_delete" />
+</LinearLayout>

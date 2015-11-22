@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Numbers Teach</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="content_description" />
+</resources>
