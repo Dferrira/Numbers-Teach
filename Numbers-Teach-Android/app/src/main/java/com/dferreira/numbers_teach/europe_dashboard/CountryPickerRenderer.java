@@ -69,7 +69,7 @@ class CountryPickerRenderer implements GLSurfaceView.Renderer {
      */
     private static void setCountryScale(WfRender render, Obj3DData country) {
         if (country.isSelected()) {
-            render.setScale(2.0f, 2.0f, 1.2f);
+            render.setScale(3.0f, 2.0f, 1.2f);
         } else {
             render.setScale(1.0f, 1.0f, 1.0f);
         }
