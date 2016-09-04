@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/playerPanel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:background="@android:drawable/toast_frame"
+    android:gravity="center_vertical|center_horizontal">
+
+    <TextView
+        android:id="@+id/imageCounter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="@string/loading"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageButton
+        android:id="@+id/againBtn"
+        style="@style/movie_button"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/ic_replay_white_48dp" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        style="@style/movie_button"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/ic_skip_previous_white_48dp" />
+
+    <ImageButton
+        android:id="@+id/playBtn"
+        style="@style/movie_button"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/ic_play_arrow_white_48dp" />
+
+    <ImageButton
+        android:id="@+id/pauseBtn"
+        style="@style/movie_button"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/ic_pause_white_48dp" />
+
+    <ImageButton
+        android:id="@+id/nextBtn"
+        style="@style/movie_button"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/ic_skip_next_white_48dp" />
+
+</LinearLayout>

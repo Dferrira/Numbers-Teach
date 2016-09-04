@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Enseignement des numéros</string>
+    <string name="loading">Luede</string>
+    <string name="title_activity_preferences">Optiounen</string>
+    <string name="final_score">Stoung finale: </string>
+    <string name="lesson">Lektioun</string>
+    <string name="exercises">Regéiert</string>
+    <string name="results">Resultater</string>
+    <string name="portuguese">Portugisesch</string>
+    <string name="french">Franséisch</string>
+    <string name="english">Englesch</string>
+    <string name="german">Däitsch</string>
+    <string name="preferences">Virléiften</string>
+    <string name="activities">Aktivitéiten</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_white_strong"
+    android:orientation="vertical"
+    android:stretchMode="columnWidth">
+
+
+    <ImageView
+        android:id="@+id/opt_img1"
+        style="@style/image_choice_landscape"
+        android:contentDescription="@string/selectable_image_1"
+        android:maxWidth="10dp" />
+
+    <ImageView
+        android:id="@+id/opt_img2"
+        style="@style/image_choice_landscape"
+        android:contentDescription="@string/selectable_image_2" />
+
+    <ImageView
+        android:id="@+id/opt_img3"
+        style="@style/image_choice_landscape"
+        android:contentDescription="@string/selectable_image_3" />
+
+    <ImageView
+        android:id="@+id/opt_img4"
+        style="@style/image_choice_landscape"
+        android:contentDescription="@string/selectable_image_4" />
+
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/transparent_shape"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/english_btn"
+        style="@style/DashboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/dashboard_margins"
+        android:layout_marginStart="@dimen/dashboard_margins"
+        android:layout_marginTop="@dimen/dashboard_margins"
+        android:drawableTop="@drawable/en_flag"
+        android:tag="@string/en"
+        android:text="@string/english" />
+
+    <Button
+        android:id="@+id/french_btn"
+        style="@style/DashboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableTop="@drawable/fr_flag"
+        android:tag="@string/fr"
+        android:text="@string/french" />
+
+    <Button
+        android:id="@+id/portuguese_btn"
+        style="@style/DashboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/dashboard_margins"
+        android:layout_marginLeft="@dimen/dashboard_margins"
+        android:layout_marginStart="@dimen/dashboard_margins"
+        android:drawableTop="@drawable/pt_flag"
+        android:tag="@string/pt"
+        android:text="@string/portuguese" />
+
+    <Button
+        android:id="@+id/german_btn"
+        style="@style/DashboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/dashboard_margins"
+        android:layout_marginRight="@dimen/dashboard_margins"
+        android:layout_marginTop="@dimen/dashboard_margins"
+        android:layout_toEndOf="@+id/french_btn"
+        android:layout_toRightOf="@+id/french_btn"
+        android:drawableTop="@drawable/de_flag"
+        android:tag="@string/de"
+        android:text="@string/german" />
+
+    <Button
+        android:id="@+id/luxembourgish_btn"
+        style="@style/DashboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/dashboard_margins"
+        android:layout_marginEnd="@dimen/dashboard_margins"
+        android:layout_marginRight="@dimen/dashboard_margins"
+        android:layout_toEndOf="@+id/french_btn"
+        android:layout_toRightOf="@+id/french_btn"
+        android:drawableTop="@drawable/lb_flag"
+        android:tag="@string/lb"
+        android:text="@string/luxembourgish" />
+
+</RelativeLayout>

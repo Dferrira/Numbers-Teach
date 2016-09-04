@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="stroke_dimension">2dp</dimen>
+    <dimen name="corner_dimension">7dp</dimen>
+    <dimen name="margin_palette_image">10dp</dimen>
+    <dimen name="list_item_margins">10dp</dimen>
+    <dimen name="list_item_text_size">25sp</dimen>
+    <dimen name="buttons_elevation">2dp</dimen>
+    <dimen name="padding">5dp</dimen>
+    <dimen name="activity_icon_padding">10dp</dimen>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="listening_and_read_title">Escute e leia</string>
+    <string name="listen_and_select_a_picture">Ouvir e selecionar uma imagem</string>
+    <string name="read_and_select_picture">Ler e selecionar uma imagem</string>
+</resources>

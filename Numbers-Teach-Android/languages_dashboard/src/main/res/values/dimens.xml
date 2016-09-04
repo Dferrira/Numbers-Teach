@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="dashboard_margins">30dp</dimen>
+    <dimen name="dashboard_buttons_size">120dp</dimen>
+    <dimen name="button_radius_borders">10dp</dimen>
+    <dimen name="button_top_padding">20dp</dimen>
+</resources>

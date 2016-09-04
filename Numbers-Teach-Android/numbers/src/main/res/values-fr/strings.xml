@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="one" tools:ignore="UnusedResources">un</string>
+    <string name="two" tools:ignore="UnusedResources">deux</string>
+    <string name="three" tools:ignore="UnusedResources">trois</string>
+    <string name="four" tools:ignore="UnusedResources">quatre</string>
+    <string name="five" tools:ignore="UnusedResources">cinq</string>
+    <string name="six" tools:ignore="UnusedResources">six</string>
+    <string name="seven" tools:ignore="UnusedResources">sept</string>
+    <string name="eight" tools:ignore="UnusedResources">huit</string>
+    <string name="nine" tools:ignore="UnusedResources">neuf</string>
+    <string name="ten" tools:ignore="UnusedResources">dix</string>
+    <string name="eleven" tools:ignore="UnusedResources">onze</string>
+    <string name="twelve" tools:ignore="UnusedResources">douze</string>
+    <string name="thirteen" tools:ignore="UnusedResources">treize</string>
+    <string name="fourteen" tools:ignore="UnusedResources">quatorze</string>
+    <string name="fifteen" tools:ignore="UnusedResources">quinze</string>
+    <string name="sixteen" tools:ignore="UnusedResources">seize</string>
+    <string name="seventeen" tools:ignore="UnusedResources">dix-sept</string>
+    <string name="eighteen" tools:ignore="UnusedResources">dix-huit</string>
+    <string name="nineteen" tools:ignore="UnusedResources">dix-neuf</string>
+    <string name="twenty" tools:ignore="UnusedResources">vingt</string>
+</resources>

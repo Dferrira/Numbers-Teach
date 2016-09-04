@@ -1,0 +1,7 @@
+<resources>
+    <string name="portuguese">Portugais</string>
+    <string name="french">Français</string>
+    <string name="english">Anglais</string>
+    <string name="german">Allemand</string>
+    <string name="luxembourgish">Luxembourgeois</string>
+</resources>

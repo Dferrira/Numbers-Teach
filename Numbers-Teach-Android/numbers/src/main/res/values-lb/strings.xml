@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="one" tools:ignore="UnusedResources">eent</string>
+    <string name="two" tools:ignore="UnusedResources">zwee</string>
+    <string name="three" tools:ignore="UnusedResources">dräi</string>
+    <string name="four" tools:ignore="UnusedResources">véier</string>
+    <string name="five" tools:ignore="UnusedResources">fënnef</string>
+    <string name="six" tools:ignore="UnusedResources">sechs</string>
+    <string name="seven" tools:ignore="UnusedResources">siwen</string>
+    <string name="eight" tools:ignore="UnusedResources">aacht</string>
+    <string name="nine" tools:ignore="UnusedResources">néng</string>
+    <string name="ten" tools:ignore="UnusedResources">zéng</string>
+    <string name="eleven" tools:ignore="UnusedResources">eelef</string>
+    <string name="twelve" tools:ignore="UnusedResources">zwielef</string>
+    <string name="thirteen" tools:ignore="UnusedResources">dräizéng</string>
+    <string name="fourteen" tools:ignore="UnusedResources">véierzéng</string>
+    <string name="fifteen" tools:ignore="UnusedResources">fofzéng</string>
+    <string name="sixteen" tools:ignore="UnusedResources">siechzéng</string>
+    <string name="seventeen" tools:ignore="UnusedResources">siwwenzéng</string>
+    <string name="eighteen" tools:ignore="UnusedResources">uechtzéng</string>
+    <string name="nineteen" tools:ignore="UnusedResources">nonzéng</string>
+    <string name="twenty" tools:ignore="UnusedResources">zwaneg</string>
+</resources>

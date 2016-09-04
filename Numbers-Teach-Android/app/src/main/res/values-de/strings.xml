@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Teaching Nummern</string>
+    <string name="loading">Laden&#8230;</string>
+    <string name="title_activity_preferences">Optionen</string>
+    <string name="final_score">Abschlussnote : </string>
+    <string name="lesson">Lektion</string>
+    <string name="exercises">Übungen</string>
+    <string name="results">Ergebnisse</string>
+    <string name="portuguese">Portugiesisch</string>
+    <string name="french">Französisch</string>
+    <string name="english">Englisch</string>
+    <string name="german">Deutschen</string>
+    <string name="preferences">Einstellungen</string>
+    <string name="activities">Aktivitäten</string>
+</resources>

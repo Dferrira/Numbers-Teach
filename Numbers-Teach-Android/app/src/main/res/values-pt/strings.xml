@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Ensino de números</string>
+    <string name="loading">A carregar</string>
+    <string name="title_activity_preferences">Opções</string>
+    <string name="final_score">Pontuação final: </string>
+    <string name="lesson">Lição</string>
+    <string name="exercises">Exercícios</string>
+    <string name="results">Resultados</string>
+    <string name="portuguese">Português</string>
+    <string name="french">Francês</string>
+    <string name="english">Inglês</string>
+    <string name="german">Alemão</string>
+    <string name="preferences">Preferências</string>
+    <string name="activities">Atividades</string>
+</resources>

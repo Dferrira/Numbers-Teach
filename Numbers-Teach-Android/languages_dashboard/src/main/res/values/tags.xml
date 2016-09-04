@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="en" translatable="false">en</string>
+    <string name="fr" translatable="false">fr</string>
+    <string name="pt" translatable="false">pt</string>
+    <string name="de" translatable="false">de</string>
+    <string name="lb" translatable="false">lb</string>
+</resources>

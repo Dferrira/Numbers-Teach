@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    tools:context=".scores.GlobalScoresListActivity">
+
+    <include layout="@layout/app_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+
+        <fragment
+            android:id="@+id/scores_list_fragment"
+            android:name="com.dferreira.numbers_teach.scores.GlobalScoresListFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/global_scores_list_fragment" />
+
+        <fragment
+            android:id="@+id/exercise_list_fragment"
+            android:name="com.dferreira.numbers_teach.scores.ExerciseScoresListFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="InconsistentLayout"
+            tools:layout="@layout/exercise_scores_list_fragment" />
+    </LinearLayout>
+
+
+</LinearLayout>
