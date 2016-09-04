@@ -1,5 +1,6 @@
 package com.dferreira.numbers_teach.helpers;
 
+
 import java.util.Random;
 
 /**
@@ -7,8 +8,8 @@ import java.util.Random;
  */
 public class ExercisesHelper {
 
-    private static Random rnd = new Random();
-    private static int ARRAY_INIT_VALUE = -1;
+    private static final Random rnd = new Random();
+    private static final int ARRAY_INIT_VALUE = -1;
 
     /**
      * @param iArray array o integers
@@ -16,8 +17,10 @@ public class ExercisesHelper {
      * @return false : The array does not contain the value passed
      * true : The array contains the value that was passed
      */
+    @SuppressWarnings("ForLoopReplaceableByForEach")
     private static boolean arrayContains(int[] iArray, int value) {
-        for (int i = 0; i < iArray.length; i++) {
+        int arrayLength = iArray.length;
+        for (int i = 0; i < arrayLength; i++) {
             if (iArray[i] == value) {
                 return true;
             }
@@ -33,6 +36,7 @@ public class ExercisesHelper {
      * @param totalSlides total of slides
      * @return Array of indexes
      */
+    @SuppressWarnings("SameParameterValue")
     public static int[] generateIndexes(int min, int max, int totalSlides) {
         int maxNumber = max - min;
         int[] genIndexes = new int[totalSlides];
@@ -67,6 +71,7 @@ public class ExercisesHelper {
      * @param numberOfOptions Number of options show to the user
      * @return Array of index of the selectable options
      */
+    @SuppressWarnings("SameParameterValue")
     public static int[] generateIndexesOptions(int rightIndex, int totalSlides, int numberOfOptions) {
 
         int[] genIndexes = new int[numberOfOptions];
@@ -81,7 +86,7 @@ public class ExercisesHelper {
 
         //Generate no repeated values
         for (int i = 0; i < genIndexes.length; i++) {
-            if(genIndexes[i] == ARRAY_INIT_VALUE) {
+            if (genIndexes[i] == ARRAY_INIT_VALUE) {
                 int newValue;
                 do {
                     newValue = rnd.nextInt(totalSlides);
@@ -95,37 +100,6 @@ public class ExercisesHelper {
 
     }
 
-    /**
-     * @param indexes Index of the images to show
-     * @return The paths of the 2D images to be show to the user taking in account the passed arguments
-     */
-    public static String[] getImages2DPath(int[] indexes) {
-        if ((indexes == null) || (indexes.length <= 0)) {
-            return null;
-        } else {
-            String[] paths = new String[indexes.length];
-            for (int i = 0; i < indexes.length; i++) {
-                paths[i] = FilePathHelper.getImg2DPath(indexes[i]);
-            }
-            return paths;
-        }
-    }
-
-    /**
-     * @param indexes Index of the images to show
-     * @return The paths of the 3D object to be show to the user taking in account the passed arguments
-     */
-    public static String[] getObjects3DPath(int[] indexes) {
-        if ((indexes == null) || (indexes.length <= 0)) {
-            return null;
-        } else {
-            String[] paths = new String[indexes.length];
-            for (int i = 0; i < indexes.length; i++) {
-                paths[i] = FilePathHelper.getObj3DPath(indexes[i]);
-            }
-            return paths;
-        }
-    }
 
     /**
      * @param index Index of the option

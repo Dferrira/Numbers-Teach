@@ -1,18 +1,49 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
     <style name="common_buttons">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="buttons" parent="common_buttons" />
+
+    <!--Style of the button of the sequence-->
+    <style name="movie_button" parent="buttons">
+        <item name="android:background">@color/grey</item>
+    </style>
+
+    <style name="view_flipper_slider">
+        <item name="android:paddingBottom">@dimen/padding</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!-- Style of the text_views that exists in the slide of terms-->
+    <style name="text_view_slide">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:background">@drawable/shape_green_strong</item>
+    </style>
+
+    <!-- Style to use in images of the palette in portrait orientation-->
+    <style name="image_choice_portrait">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">@dimen/margin_palette_image</item>
+        <item name="android:background">@drawable/shape_green_strong</item>
+    </style>
+
+    <!-- Style to use in images of the palette in landscape orientation-->
+    <style name="image_choice_landscape">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginBottom">@dimen/margin_palette_image</item>
+        <item name="android:background">@drawable/shape_green_strong</item>
+    </style>
 
 </resources>

@@ -1,1 +1,1 @@
-include ':app', ':commons'
+include ':app', ':numbers', ':languages_dashboard', ':exercise_icons', ':commons', ':level1'

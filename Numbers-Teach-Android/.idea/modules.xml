@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Numbers-Teach.iml" filepath="$PROJECT_DIR$/Numbers-Teach.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Numbers-Teach-Android.iml" filepath="$PROJECT_DIR$/Numbers-Teach-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons/commons.iml" filepath="$PROJECT_DIR$/commons/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_icons/exercise_icons.iml" filepath="$PROJECT_DIR$/exercise_icons/exercise_icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/languages_dashboard/languages_dashboard.iml" filepath="$PROJECT_DIR$/languages_dashboard/languages_dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/level1/level1.iml" filepath="$PROJECT_DIR$/level1/level1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/numbers/numbers.iml" filepath="$PROJECT_DIR$/numbers/numbers.iml" />
     </modules>
   </component>
 </project>

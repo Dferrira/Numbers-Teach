@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">Numbers Teach</string>
     <string name="loading">Loading&#8230;</string>
-    <string name="content_description" />
+    <string name="content_description" translatable="false" />
+    <string name="sequence_delay_summary" translatable="false">Delay between slides in the sequence activity</string>
+    <string name="sequence_delay_title" translatable="false">Delay between slides in the sequence activity</string>
+    <string name="title_activity_preferences">Preferences</string>
+    <string name="selectable_image_1" translatable="false">First selectable image</string>
+    <string name="selectable_image_2" translatable="false">Second selectable image</string>
+    <string name="selectable_image_3" translatable="false">Third selectable image</string>
+    <string name="selectable_image_4" translatable="false">Fourth selectable image</string>
+    <string name="selected_image_desc" translatable="false">The answer of the user</string>
+    <string name="final_score">Final score</string>
+    <string name="lesson">Lesson</string>
+    <string name="exercises">Exercises</string>
+    <string name="results">Results</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="french">French</string>
+    <string name="english">English</string>
+    <string name="german">German</string>
+    <string name="preferences">Preferences</string>
+    <string name="activities">Activities</string>
+    <string name="scores_format" translatable="false">"%d/%d"</string>
 </resources>
