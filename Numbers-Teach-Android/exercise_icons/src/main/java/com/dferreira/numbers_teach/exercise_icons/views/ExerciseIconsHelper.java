@@ -1,4 +1,4 @@
-package com.dferreira.numbers_teach.exercise_icons.helpers;
+package com.dferreira.numbers_teach.exercise_icons.views;
 
 import android.text.TextUtils;
 import android.view.MenuItem;

@@ -9,7 +9,7 @@ import com.dferreira.numbers_teach.commons.GenericActivity;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.generic.ui.IScoreExerciseActivity;
 
-import helpers.UIHelper;
+import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * Show a list of possible activities that the user could take to learn the numbers in the

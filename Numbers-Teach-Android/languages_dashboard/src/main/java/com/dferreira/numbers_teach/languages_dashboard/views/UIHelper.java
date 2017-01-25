@@ -1,4 +1,4 @@
-package helpers;
+package com.dferreira.numbers_teach.languages_dashboard.views;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

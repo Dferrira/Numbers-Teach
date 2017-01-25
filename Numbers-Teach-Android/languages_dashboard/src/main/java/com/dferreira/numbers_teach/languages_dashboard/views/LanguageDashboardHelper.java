@@ -1,4 +1,4 @@
-package com.dferreira.numbers_teach.languages_dashboard;
+package com.dferreira.numbers_teach.languages_dashboard.views;
 
 import android.content.Context;
 

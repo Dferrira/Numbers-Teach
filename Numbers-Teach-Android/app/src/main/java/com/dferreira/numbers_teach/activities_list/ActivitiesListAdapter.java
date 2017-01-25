@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,7 +25,7 @@ import com.dferreira.numbers_teach.ui_models.ActivityItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import helpers.UIHelper;
+import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * List adapter that is going to be responsible for provide a list of activities to the user learn the language
@@ -105,6 +106,7 @@ public class ActivitiesListAdapter extends ArrayAdapter<ViewHolder> implements V
      * @param parent      The parent that this view will eventually be attached to
      * @return A View corresponding to the data at the specified position.
      */
+    @NonNull
     @SuppressWarnings("unchecked")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

@@ -1,4 +1,4 @@
-package com.dferreira.numbers_teach.languages_dashboard;
+package com.dferreira.numbers_teach.languages_dashboard.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-import helpers.UIHelper;
+import com.dferreira.numbers_teach.languages_dashboard.R;
+import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * A placeholder fragment containing a simple view.

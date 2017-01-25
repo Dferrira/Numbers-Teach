@@ -13,7 +13,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".languages_dashboard.LanguagesDashboardActivity"
+            android:name=".languages_dashboard.views.LanguagesDashboardActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,13 +26,13 @@
             android:name=".activities_list.ActivitiesListActivity"
             android:label="@string/activities"
             android:launchMode="singleTop"
-            android:parentActivityName=".languages_dashboard.LanguagesDashboardActivity"
+            android:parentActivityName=".languages_dashboard.views.LanguagesDashboardActivity"
             tools:ignore="UnusedAttribute"
             android:theme="@style/AppTheme.NoActionBar">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".languages_dashboard.LanguagesDashboardActivity" />
+                android:value=".languages_dashboard.views.LanguagesDashboardActivity" />
         </activity>
 
         <activity

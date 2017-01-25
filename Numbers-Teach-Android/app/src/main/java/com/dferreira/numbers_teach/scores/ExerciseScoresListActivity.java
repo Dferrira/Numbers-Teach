@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.GenericActivity;
-import com.dferreira.numbers_teach.exercise_icons.helpers.ExerciseIconsHelper;
+import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.generic.ui.IScoreExerciseActivity;
 

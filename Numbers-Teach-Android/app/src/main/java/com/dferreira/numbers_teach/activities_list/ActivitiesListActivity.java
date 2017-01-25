@@ -6,10 +6,10 @@ import android.view.Menu;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.GenericActivity;
-import com.dferreira.numbers_teach.exercise_icons.helpers.ExerciseIconsHelper;
+import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.generic.ui.ILanguageActivity;
-import com.dferreira.numbers_teach.languages_dashboard.LanguageDashboardHelper;
-import com.dferreira.numbers_teach.languages_dashboard.LanguagesDashboardFragment;
+import com.dferreira.numbers_teach.languages_dashboard.views.LanguageDashboardHelper;
+import com.dferreira.numbers_teach.languages_dashboard.views.LanguagesDashboardFragment;
 
 /**
  * Show a list of possible activities that the user could take to learn the numbers in the

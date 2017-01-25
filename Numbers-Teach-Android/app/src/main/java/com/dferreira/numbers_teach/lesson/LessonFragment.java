@@ -24,7 +24,7 @@ import com.dferreira.numbers_teach.generic.ui.IPlayHandler;
 
 import java.util.Date;
 
-import helpers.UIHelper;
+import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * Fragment with a lesson_fragment of 3D objects to show

@@ -4,8 +4,8 @@ import android.app.Application;
 
 import com.dferreira.numbers_teach.activities_list.ActivitiesListActivity;
 import com.dferreira.numbers_teach.commons.GenericStudySet;
-import com.dferreira.numbers_teach.languages_dashboard.LanguagesDashboardFragment;
-import com.dferreira.numbers_teach.numbers.StudySet;
+import com.dferreira.numbers_teach.languages_dashboard.views.LanguagesDashboardFragment;
+import com.dferreira.numbers_teach.numbers.models.StudySet;
 
 /**
  * Forces some data before start the activities

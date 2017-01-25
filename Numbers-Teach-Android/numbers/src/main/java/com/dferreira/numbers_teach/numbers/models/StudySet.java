@@ -1,4 +1,4 @@
-package com.dferreira.numbers_teach.numbers;
+package com.dferreira.numbers_teach.numbers.models;
 
 import com.dferreira.numbers_teach.commons.GenericStudySet;
 
