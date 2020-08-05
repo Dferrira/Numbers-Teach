@@ -1,15 +1,15 @@
 package com.dferreira.numbers_teach.lesson;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.generic.ui.ILabeledFragment;
@@ -114,7 +114,7 @@ public class LessonMenuFragment extends Fragment implements
     /**
      * Called when the fragment is visible to the user and actively running.
      * This is generally
-     * tied to {@link Activity#onResume() Activity.onResume} of the containing
+     * tied to { Activity.onResume} of the containing
      * Activity's lifecycle.
      */
     @Override

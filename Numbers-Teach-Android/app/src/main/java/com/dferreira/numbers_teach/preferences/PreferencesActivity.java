@@ -2,9 +2,10 @@ package com.dferreira.numbers_teach.preferences;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.preference.PreferenceFragmentCompat;
-import android.support.v7.preference.PreferenceScreen;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceScreen;
+
+
 import android.view.MenuItem;
 
 import com.dferreira.numbers_teach.R;
@@ -26,7 +27,7 @@ public class PreferencesActivity extends GenericActivity implements PreferenceFr
         this.setupActionBar(R.mipmap.ic_settings_black_48dp);
 
         if (savedInstanceState == null) {
-            Fragment p = new PreferencesFragment();
+            PreferencesFragment p = new PreferencesFragment();
 
             String key = getIntent().getStringExtra(PREFERENCE_KEY);
             if (key != null) {
@@ -66,4 +67,6 @@ public class PreferencesActivity extends GenericActivity implements PreferenceFr
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

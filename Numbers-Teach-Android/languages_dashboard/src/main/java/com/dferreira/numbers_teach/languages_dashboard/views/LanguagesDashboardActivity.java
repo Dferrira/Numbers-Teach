@@ -2,7 +2,8 @@ package com.dferreira.numbers_teach.languages_dashboard.views;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.dferreira.numbers_teach.commons.GenericActivity;
 import com.dferreira.numbers_teach.languages_dashboard.R;
@@ -10,7 +11,6 @@ import com.dferreira.numbers_teach.languages_dashboard.R;
 /**
  * Activity of main languages dashboard
  */
-@SuppressLint("Registered")
 public class LanguagesDashboardActivity extends GenericActivity {
 
     /**

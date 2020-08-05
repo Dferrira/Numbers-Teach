@@ -2,16 +2,16 @@ package com.dferreira.numbers_teach.languages_dashboard.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
 
 import com.dferreira.numbers_teach.languages_dashboard.R;
-import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * A placeholder fragment containing a simple view.

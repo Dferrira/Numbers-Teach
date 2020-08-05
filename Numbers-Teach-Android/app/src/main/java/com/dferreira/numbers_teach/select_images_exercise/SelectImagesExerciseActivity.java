@@ -3,7 +3,8 @@ package com.dferreira.numbers_teach.select_images_exercise;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
