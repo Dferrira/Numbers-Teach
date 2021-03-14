@@ -1,6 +1,5 @@
 package com.dferreira.numbers_teach.languages_dashboard.views;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;

@@ -24,7 +24,6 @@ public interface IGesturesHandler {
     /**
      * When the user tries drag down the element
      */
-    @SuppressWarnings("EmptyMethod")
     void dragDown();
 
     /**
