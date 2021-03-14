@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "$build_tools_version"
     defaultConfig {
         applicationId 'com.dferreira.numbers_teach'
         minSdkVersion 14
@@ -23,17 +23,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'androidx.appcompat:appcompat:1.1.0'
-    compile 'androidx.preference:preference:1.1.1'
-    compile 'com.google.android.material:material:1.2.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.preference:preference-ktx:$preference_version"
+    implementation "com.google.android.material:material:$material_design_version"
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.j256.ormlite:ormlite-core:4.48'
-    compile project(':languages_dashboard')
-    compile project(':exercise_icons')
-    compile project(':commons')
-    compile project(':numbers')
-    implementation "androidx.core:core-ktx:+"
+    implementation project(':languages_dashboard')
+    implementation project(':exercise_icons')
+    implementation project(':commons')
+    implementation project(':numbers')
+    implementation "androidx.core:core-ktx:$core_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
