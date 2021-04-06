@@ -4,9 +4,10 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 30
     buildToolsVersion "$build_tools_version"
+    kotlinOptions.useIR = use_new_compiler_backend
     defaultConfig {
         applicationId 'com.dferreira.numbers_teach'
-        minSdkVersion 14
+        minSdkVersion minimum_sdk_version
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
