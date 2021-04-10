@@ -9,6 +9,10 @@ buildscript {
     ext.preference_version = "1.1.1"
     ext.minimum_sdk_version = 21
     ext.use_new_compiler_backend = true
+    ext.use_jetpack_compose = true
+    ext.jvm_target = "1.8"
+    ext.kotlin_compiler_extension_version = '1.0.0-beta04'
+    ext.jetpack_compose_version = '1.0.0-beta04'
 
 
     repositories {
@@ -16,7 +20,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0-alpha13'
+        classpath 'com.android.tools.build:gradle:7.0.0-alpha14'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong

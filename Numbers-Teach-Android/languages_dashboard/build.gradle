@@ -11,6 +11,11 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose use_jetpack_compose
+    }
+
     buildTypes {
         release {
             minifyEnabled false
