@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.dferreira.numbers_teach.activities_list.ActivitiesListActivity;
 import com.dferreira.numbers_teach.commons.GenericStudySet;
+import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.languages_dashboard.views.LanguagesDashboardFragment;
 import com.dferreira.numbers_teach.numbers.models.StudySet;
 
@@ -15,12 +16,12 @@ public class NumberTeachApplication extends Application {
     /**
      * Study set of the resources repository
      */
-    private static GenericStudySet studySet;
+    private static IGenericStudySet studySet;
 
     /**
      * @return The study set that the application was compiled for
      */
-    public static GenericStudySet getStudySetInstance() {
+    public static IGenericStudySet getStudySetInstance() {
         return studySet;
     }
 
@@ -36,7 +37,7 @@ public class NumberTeachApplication extends Application {
      * Initialize the study set that the user is going to see
      */
     private void initializeStudySet() {
-        studySet = new StudySet();
+        studySet = new StudySet(this.getBaseContext());
     }
 
     /**

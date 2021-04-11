@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.commons.GenericStudySet;
+import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.delegators.AudioDelegator;
 import com.dferreira.numbers_teach.preferences.PreferencesUtils;
 
@@ -49,7 +50,7 @@ public class LessonService extends IntentService {
      * Reference to the study set that is going to be used
      * to provide the set of resources
      */
-    private final GenericStudySet studySet;
+    private final IGenericStudySet studySet;
     private final AudioDelegator audioDelegator;
     /*Indicates if the service is playing sequentially the audio*/
     private boolean isPlaying;
@@ -149,7 +150,7 @@ public class LessonService extends IntentService {
      * Send the information to the UI to render the current slide.
      */
     private void sendCurrentSlideUINotification() {
-        String label = studySet.getAudioLabel(this, this.language, playingIndex);
+        String label = studySet.getAudioLabel(this.language, playingIndex);
         String imagePath = studySet.getImagePath(playingIndex);
         this.sendUIRefreshRequest(playingIndex, this.totalSlides, label, imagePath);
     }

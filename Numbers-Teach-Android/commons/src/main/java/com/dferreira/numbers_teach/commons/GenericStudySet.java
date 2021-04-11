@@ -10,12 +10,17 @@ import java.util.Locale;
 /**
  * Generic class with some methods to access the different components of the set of resources
  */
-public abstract class GenericStudySet {
+public abstract class GenericStudySet implements IGenericStudySet {
 
     private static final String AUDIO_FOLDER_PREFIX = "audio-";
     private static final String PICTURES_FOLDER = "pictures";
     private static final String AUDIO_FILE_SUFFIX = ".mp3";
     private static final String IMG2D_FILE_SUFFIX = ".png";
+    private final Context context;
+
+    public GenericStudySet(Context context) {
+        this.context = context;
+    }
 
     /**
      * @return A list with prefixes of the resources provides by the repository
@@ -25,12 +30,11 @@ public abstract class GenericStudySet {
     /**
      * Get the label associated with parameters passed
      *
-     * @param context  context where this method is called
      * @param language language which will be used to produce the label
      * @param index    index of the audio that will be return
      * @return String that represents that audio
      */
-    public String getAudioLabel(Context context, String language, int index) {
+    public String getAudioLabel(String language, int index) {
         Configuration conf = context.getResources().getConfiguration();
         Locale original = conf.locale;
         conf.locale = new Locale(language);
@@ -64,7 +68,7 @@ public abstract class GenericStudySet {
      * @param index Index of the audio file to play
      * @return Name of the file where the audio exist to the specified language
      */
-    private String getAudioFile(int index) {
+    private String getAudioFileName(int index) {
         return getResourcePrefixes()[index] + AUDIO_FILE_SUFFIX;
     }
 
@@ -72,7 +76,7 @@ public abstract class GenericStudySet {
      * @param index Index of the image to show
      * @return The name of the png image associated
      */
-    private String getImageFile(int index) {
+    private String getImageFileName(int index) {
         return getResourcePrefixes()[index] + IMG2D_FILE_SUFFIX;
     }
 
@@ -83,7 +87,7 @@ public abstract class GenericStudySet {
      * @return The path of the audio to be played taking in account the passed arguments
      */
     public String getAudioPath(String language, int index) {
-        return getAudioFolder(language) + "/" + getAudioFile(index);
+        return getAudioFolder(language) + "/" + getAudioFileName(index);
     }
 
     /**
@@ -91,7 +95,7 @@ public abstract class GenericStudySet {
      * @return The path of the image 2D to be show to the user taking in account the passed arguments
      */
     public String getImagePath(int index) {
-        return PICTURES_FOLDER + "/" + getImageFile(index);
+        return PICTURES_FOLDER + "/" + getImageFileName(index);
     }
 
     /**

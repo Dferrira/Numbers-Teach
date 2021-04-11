@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.GenericStudySet;
+import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.delegators.AudioDelegator;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.generic_exercise.ExerciseMsgType;
@@ -116,7 +117,7 @@ public class SelectImagesExerciseService extends IntentService {
      * Reference to the study set that is going to be used
      * to provide the set of resources
      */
-    private final GenericStudySet studySet;
+    private final IGenericStudySet studySet;
 
     /**
      * Starts the sequence audio handler
@@ -178,7 +179,7 @@ public class SelectImagesExerciseService extends IntentService {
      * @param playingIndex Index of the audio to play
      */
     private void sendCurrentSlideUINotification(int playingIndex) {
-        String label = studySet.getAudioLabel(this, this.language, playingIndex);
+        String label = studySet.getAudioLabel(this.language, playingIndex);
         int[] selectableIndexes = ExercisesHelper.generateIndexesOptions(playingIndex, totalSlides, NUMBER_OPTIONS);
         String[] images2DPath = studySet.getImagesPath(selectableIndexes);
         Object[] tags = ExercisesHelper.getTags(selectableIndexes);

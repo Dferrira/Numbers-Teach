@@ -1,5 +1,7 @@
 package com.dferreira.numbers_teach.numbers.models;
 
+import android.content.Context;
+
 import com.dferreira.numbers_teach.commons.GenericStudySet;
 
 
@@ -8,8 +10,8 @@ import com.dferreira.numbers_teach.commons.GenericStudySet;
  */
 public class StudySet extends GenericStudySet {
 
-    public StudySet() {
-
+    public StudySet(Context context) {
+        super(context);
     }
 
     /**
