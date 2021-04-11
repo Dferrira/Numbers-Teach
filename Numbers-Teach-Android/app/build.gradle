@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion compile_sdk_version
     buildToolsVersion "$build_tools_version"
 
     // Set both the Java and Kotlin compilers to target Java 8.
@@ -17,21 +17,12 @@ android {
         useIR = use_new_compiler_backend
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion "$kotlin_compiler_extension_version"
-    }
-
-
     defaultConfig {
         applicationId 'com.dferreira.numbers_teach'
         minSdkVersion minimum_sdk_version
-        targetSdkVersion 30
+        targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-    }
-    buildFeatures {
-        // Enables Jetpack Compose for this module
-        compose use_jetpack_compose
     }
 
 
@@ -59,26 +50,6 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation "androidx.compose.ui:ui:$jetpack_compose_version"
-    // Tooling support (Previews, etc.)
-    implementation "androidx.compose.ui:ui-tooling:$jetpack_compose_version"
-    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation "androidx.compose.foundation:foundation:$jetpack_compose_version"
-    // Material Design
-    implementation "androidx.compose.material:material:$jetpack_compose_version"
-    // Material design icons
-    implementation "androidx.compose.material:material-icons-core:$jetpack_compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$jetpack_compose_version"
-    // Integration with activities
-    implementation "androidx.activity:activity-compose:1.3.0-alpha06"
-    // Integration with ViewModels
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha04"
-    // Integration with observables
-    implementation "androidx.compose.runtime:runtime-livedata:$jetpack_compose_version"
-    implementation "androidx.compose.runtime:runtime-rxjava2:$jetpack_compose_version"
-
-    // UI Tests
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$jetpack_compose_version"
 
 }
 repositories {

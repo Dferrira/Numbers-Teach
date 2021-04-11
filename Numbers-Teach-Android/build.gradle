@@ -9,14 +9,13 @@ buildscript {
     ext.preference_version = "1.1.1"
     ext.minimum_sdk_version = 21
     ext.use_new_compiler_backend = true
-    ext.use_jetpack_compose = true
     ext.jvm_target = "1.8"
-    ext.kotlin_compiler_extension_version = '1.0.0-beta04'
-    ext.jetpack_compose_version = '1.0.0-beta04'
+    ext.compile_sdk_version = 30
+    ext.target_sdk_version = 30
 
 
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
@@ -30,7 +29,7 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         maven {
             url 'https://maven.google.com/'
             name 'Google'
