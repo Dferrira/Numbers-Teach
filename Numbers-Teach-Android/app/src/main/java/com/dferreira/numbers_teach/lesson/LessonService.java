@@ -18,58 +18,43 @@ import java.util.Date;
 public class LessonService extends IntentService {
 
 
-    private static final String TAG = "SelectImagesExerciseService";
     public static final String NOTIFICATION = "com.dferreira.numbers_teach.sequence.receiver";
     public static final String LANGUAGE = "Language";
     public static final String TYPE_KEY = "Type";
+    /**
+     * Key of the index element
+     */
+    public static final String INDEX_KEY = "index";
+    /**
+     * Key of the element with a counter of all supported slides
+     */
+    public static final String TOTAL_KEY = "total";
+    /**
+     * Key of the label element
+     */
+    public static final String LABEL_KEY = "label";
+    /**
+     * key of the image
+     */
+    public static final String IMAGE_KEY = "image";
+    private static final String TAG = "SelectImagesExerciseService";
     private static final Integer ACTIVITY_TIMEOUT = 1000;
-
+    //Indicates if the service is already running or not
+    private static boolean running = false;
+    private static Long activityPaused;
+    private static boolean toRestoreState;
+    private static Integer lastKnowValue;
+    private static LessonService instance;
     /**
      * Reference to the study set that is going to be used
      * to provide the set of resources
      */
     private final GenericStudySet studySet;
-
-
+    private final AudioDelegator audioDelegator;
     /*Indicates if the service is playing sequentially the audio*/
     private boolean isPlaying;
-
-    /**
-     * Key of the index element
-     */
-    public static final String INDEX_KEY = "index";
-
-    /**
-     * Key of the element with a counter of all supported slides
-     */
-    public static final String TOTAL_KEY = "total";
-
-    /**
-     * Key of the label element
-     */
-    public static final String LABEL_KEY = "label";
-
-
-    /**
-     * key of the image
-     */
-    public static final String IMAGE_KEY = "image";
-
-    private final AudioDelegator audioDelegator;
-
-    //Indicates if the service is already running or not
-    private static boolean running = false;
-
-    private static Long activityPaused;
-
-    private static boolean toRestoreState;
-    private static Integer lastKnowValue;
-
     private int playingIndex;
     private int lastIndexPlayed;
-    private static LessonService instance;
-
-
     /*Language of the audio to play*/
     private String language;
     /*Number of slides to show in the label UI*/
@@ -115,6 +100,13 @@ public class LessonService extends IntentService {
     }
 
     /**
+     * Indicates to the service that should not keep running when comes back
+     */
+    public static void disableToRestoreState() {
+        LessonService.toRestoreState = false;
+    }
+
+    /**
      * Handle rotation of screen and paused
      */
     private void handleScreenRotation() {
@@ -122,13 +114,6 @@ public class LessonService extends IntentService {
             this.sendCurrentSlideUINotification();
             this.reload();
         }
-    }
-
-    /**
-     * Indicates to the service that should not keep running when comes back
-     */
-    public static void disableToRestoreState() {
-        LessonService.toRestoreState = false;
     }
 
     /**

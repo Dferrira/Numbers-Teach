@@ -10,16 +10,16 @@
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_icon_padding"
         android:layout_marginStart="@dimen/activity_icon_padding"
+        android:layout_marginLeft="@dimen/activity_icon_padding"
         android:contentDescription="@string/loading" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/list_item_margins"
         android:layout_marginStart="@dimen/list_item_margins"
+        android:layout_marginLeft="@dimen/list_item_margins"
         android:layout_marginTop="@dimen/list_item_margins"
         android:gravity="center_vertical"
         android:text="@string/loading"

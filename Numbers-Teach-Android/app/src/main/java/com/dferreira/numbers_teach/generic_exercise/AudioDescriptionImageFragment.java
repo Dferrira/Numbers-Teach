@@ -33,11 +33,9 @@ import com.dferreira.numbers_teach.helpers.ImageHelper;
 public class AudioDescriptionImageFragment extends Fragment implements ISelectedChoice, ILabeledHandler {
 
 
+    private static final String LABEL_KEY = "Label";
     @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "ADescriptionImageF";
-
-    private static final String LABEL_KEY = "Label";
-
     private TextView audioDescriptionTv;
 
     /*Image view that is going to get the images selected by the user*/

@@ -18,13 +18,11 @@ public class UserActionMsgProvider {
     private static final String TAG_KEY = "tag";
 
     private static final String TYPE_KEY = "Type";
-
+    private static UserActionMsgProvider instance;
     /**
      * List of intents to be used treat by the listeners
      */
     private final List<Intent> intentsQueue;
-
-    private static UserActionMsgProvider instance;
 
 
     /**
@@ -44,6 +42,22 @@ public class UserActionMsgProvider {
             instance = new UserActionMsgProvider();
         }
         return instance;
+    }
+
+    /**
+     * @param intent Intent that was received
+     * @return The message type
+     */
+    public static UserActionMsgType getMsgType(Intent intent) {
+        return (UserActionMsgType) intent.getSerializableExtra(TYPE_KEY);
+    }
+
+    /**
+     * @param intent Intent that was received
+     * @return The the passed in the intent if any
+     */
+    public static Object getTag(Intent intent) {
+        return intent.getSerializableExtra(TAG_KEY);
     }
 
     /**
@@ -82,21 +96,5 @@ public class UserActionMsgProvider {
                 return this.intentsQueue.remove(0);
             }
         }
-    }
-
-    /**
-     * @param intent Intent that was received
-     * @return The message type
-     */
-    public static UserActionMsgType getMsgType(Intent intent) {
-        return (UserActionMsgType) intent.getSerializableExtra(TYPE_KEY);
-    }
-
-    /**
-     * @param intent Intent that was received
-     * @return The the passed in the intent if any
-     */
-    public static Object getTag(Intent intent) {
-        return intent.getSerializableExtra(TAG_KEY);
     }
 }

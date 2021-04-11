@@ -14,8 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.dferreira.numbers_teach.R;
-import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.generic.ui.ILanguageActivity;
 import com.dferreira.numbers_teach.select_images_exercise.SelectImagesExerciseActivity;
 

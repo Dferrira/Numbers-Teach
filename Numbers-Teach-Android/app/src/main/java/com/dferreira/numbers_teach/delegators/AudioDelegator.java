@@ -25,8 +25,8 @@ public class AudioDelegator implements MediaPlayer.OnPreparedListener, OnComplet
      */
     @SuppressWarnings("FieldCanBeLocal")
     private final int AUDIO_TIMEOUT = 5;
-    private MediaPlayer mp;
     private final Context context;
+    private MediaPlayer mp;
     private Semaphore semaphore;
     private boolean preparedToPlay;
 

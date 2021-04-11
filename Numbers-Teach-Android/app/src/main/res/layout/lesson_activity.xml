@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    android:orientation="horizontal">
 
     <fragment
+        android:id="@+id/sequence_fragment"
         android:name="com.dferreira.numbers_teach.lesson.LessonFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/sequence_fragment"
         tools:layout="@layout/lesson_fragment" />
 </LinearLayout>

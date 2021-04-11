@@ -18,11 +18,9 @@ public class SwipeDetector extends SimpleOnGestureListener {
 
 
     private static final int THRESHOLD_LAST_DOUBLE_TAP = 1000;
-
-    private long lastTapTimestamp;
-
     //Handler that is going to be called when an action is detected
     private final IGesturesHandler handler;
+    private long lastTapTimestamp;
 
     /**
      * @param handler responsible to treat the gestures from the user

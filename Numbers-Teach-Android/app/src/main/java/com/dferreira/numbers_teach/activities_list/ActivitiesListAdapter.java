@@ -17,6 +17,7 @@ import androidx.core.util.Pair;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.helpers.ImageHelper;
+import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 import com.dferreira.numbers_teach.lesson.LessonActivity;
 import com.dferreira.numbers_teach.preferences.PreferencesActivity;
 import com.dferreira.numbers_teach.scores.GlobalScoresListActivity;
@@ -25,8 +26,6 @@ import com.dferreira.numbers_teach.ui_models.ActivityItem;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * List adapter that is going to be responsible for provide a list of activities to the user learn the language
@@ -38,8 +37,8 @@ public class ActivitiesListAdapter extends ArrayAdapter<ViewHolder> implements V
     private final List<ActivityItem> activities;
     private final LayoutInflater inflater;
     private final String language;
-    private Menu menu;
     private final Activity activity;
+    private Menu menu;
 
     /**
      * @param activity Context where the list of activities will be used

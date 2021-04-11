@@ -18,6 +18,13 @@ public class NumberTeachApplication extends Application {
     private static GenericStudySet studySet;
 
     /**
+     * @return The study set that the application was compiled for
+     */
+    public static GenericStudySet getStudySetInstance() {
+        return studySet;
+    }
+
+    /**
      * Indicates to the dashboard module which activities should be launch when the user picks
      * one language
      */
@@ -30,13 +37,6 @@ public class NumberTeachApplication extends Application {
      */
     private void initializeStudySet() {
         studySet = new StudySet();
-    }
-
-    /**
-     * @return The study set that the application was compiled for
-     */
-    public static GenericStudySet getStudySetInstance() {
-        return studySet;
     }
 
     /**

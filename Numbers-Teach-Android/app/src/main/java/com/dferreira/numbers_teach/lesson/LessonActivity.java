@@ -2,7 +2,6 @@ package com.dferreira.numbers_teach.lesson;
 
 import android.os.Bundle;
 
-
 import androidx.fragment.app.FragmentActivity;
 
 import com.dferreira.numbers_teach.R;

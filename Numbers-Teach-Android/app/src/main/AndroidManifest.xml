@@ -27,8 +27,8 @@
             android:label="@string/activities"
             android:launchMode="singleTop"
             android:parentActivityName=".languages_dashboard.views.LanguagesDashboardActivity"
-            tools:ignore="UnusedAttribute"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="UnusedAttribute">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

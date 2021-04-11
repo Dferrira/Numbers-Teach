@@ -2,8 +2,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
         android:defaultValue="0"
+        android:inputType="numberSigned"
         android:key="SEQUENCE_DELAY"
         android:summary="@string/sequence_delay_summary"
-        android:inputType="numberSigned"
         android:title="@string/sequence_delay_title" />
 </PreferenceScreen>

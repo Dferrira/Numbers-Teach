@@ -12,6 +12,11 @@ import java.util.Locale;
  */
 public abstract class GenericStudySet {
 
+    private static final String AUDIO_FOLDER_PREFIX = "audio-";
+    private static final String PICTURES_FOLDER = "pictures";
+    private static final String AUDIO_FILE_SUFFIX = ".mp3";
+    private static final String IMG2D_FILE_SUFFIX = ".png";
+
     /**
      * @return A list with prefixes of the resources provides by the repository
      */
@@ -39,14 +44,6 @@ public abstract class GenericStudySet {
         resources.updateConfiguration(conf, metrics);
         return label;
     }
-
-
-    private static final String AUDIO_FOLDER_PREFIX = "audio-";
-    private static final String PICTURES_FOLDER = "pictures";
-
-    private static final String AUDIO_FILE_SUFFIX = ".mp3";
-    private static final String IMG2D_FILE_SUFFIX = ".png";
-
 
     /**
      * @return Number of images available to show to the user

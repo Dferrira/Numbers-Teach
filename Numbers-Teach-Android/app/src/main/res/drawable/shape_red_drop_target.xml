@@ -5,8 +5,8 @@
     <stroke
         android:width="@dimen/stroke_dimension"
         android:color="@color/red"
-        android:dashGap="10px"
-        android:dashWidth="10px" />
+        android:dashWidth="10px"
+        android:dashGap="10px" />
 
     <gradient
         android:angle="225"

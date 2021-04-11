@@ -23,8 +23,8 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public class ExerciseScoresListAdapter extends ArrayAdapter<ExerciseScoreIconHolder> {
 
-    private List<ExerciseResult> scores;
     private final LayoutInflater inflater;
+    private List<ExerciseResult> scores;
 
     /**
      * @param context Context where the list of activities will be used

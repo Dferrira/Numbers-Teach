@@ -15,10 +15,17 @@ import java.io.InputStream;
  * Stretch the number image to show correctly in any device
  */
 public class DeviceStretcher {
+    private static final int HEIGHT_DISPLAY_BASE = 850;
     private final Context context;
     private Matrix matrix;
 
-    private static final int HEIGHT_DISPLAY_BASE = 850;
+    public DeviceStretcher(Context context) {
+        int heightDevice;
+
+        this.context = context;
+        heightDevice = getDisplayHeight();
+        initializeMatrixTransformation(heightDevice);
+    }
 
     /**
      * Initializes the matrix that will stretch the images
@@ -43,15 +50,6 @@ public class DeviceStretcher {
         display = windowManager.getDefaultDisplay();
         //noinspection deprecation
         return display.getHeight();
-    }
-
-
-    public DeviceStretcher(Context context) {
-        int heightDevice;
-
-        this.context = context;
-        heightDevice = getDisplayHeight();
-        initializeMatrixTransformation(heightDevice);
     }
 
     /**

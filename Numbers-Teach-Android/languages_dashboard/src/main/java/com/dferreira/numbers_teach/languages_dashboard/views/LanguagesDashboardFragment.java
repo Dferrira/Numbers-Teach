@@ -9,9 +9,9 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
-
 import com.dferreira.numbers_teach.languages_dashboard.R;
+
+import java.util.ArrayList;
 
 /**
  * A placeholder fragment containing a simple view.

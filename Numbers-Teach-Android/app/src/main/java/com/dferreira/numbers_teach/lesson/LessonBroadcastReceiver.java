@@ -25,13 +25,13 @@ import java.util.List;
  */
 public class LessonBroadcastReceiver extends BroadcastReceiver {
 
-    private List<TextView> imgDescriptions;
     private final ILabeledHandler labeledView;
     private final IPlayHandler playView;
     private final ISequenceHandler sequenceHandler;
-    private int previousIndex;
     private final Activity activity;
     private final DeviceStretcher deviceStretcher;
+    private List<TextView> imgDescriptions;
+    private int previousIndex;
 
 
     /**

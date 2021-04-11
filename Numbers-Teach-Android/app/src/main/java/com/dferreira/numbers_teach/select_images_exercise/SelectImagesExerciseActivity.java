@@ -26,6 +26,19 @@ public class SelectImagesExerciseActivity extends FragmentActivity implements IE
     /*If should show text or not*/
     private ExerciseType exerciseType;
 
+    /**
+     * Start the activity activity to select the correct picture
+     *
+     * @param context      Context where the method is called
+     * @param language     The language that was selected
+     * @param exerciseType Type of exercise with different flags associated
+     */
+    public static void startSelectImagesExerciseActivity(Context context, String language, ExerciseType exerciseType) {
+        Intent intent = new Intent(context, SelectImagesExerciseActivity.class);
+        intent.putExtra(SelectImagesExerciseActivity.LANGUAGE_KEY, language);
+        intent.putExtra(SelectImagesExerciseActivity.EXERCISE_TYPE, exerciseType);
+        context.startActivity(intent);
+    }
 
     /**
      * @param savedInstanceState bundle with data that was saved in a previous cycle
@@ -58,28 +71,12 @@ public class SelectImagesExerciseActivity extends FragmentActivity implements IE
         return this.languageSelected;
     }
 
-
     /**
      * @return The reference to the type of exercise
      */
     @Override
     public ExerciseType getExerciseType() {
         return this.exerciseType;
-    }
-
-
-    /**
-     * Start the activity activity to select the correct picture
-     *
-     * @param context      Context where the method is called
-     * @param language     The language that was selected
-     * @param exerciseType Type of exercise with different flags associated
-     */
-    public static void startSelectImagesExerciseActivity(Context context, String language, ExerciseType exerciseType) {
-        Intent intent = new Intent(context, SelectImagesExerciseActivity.class);
-        intent.putExtra(SelectImagesExerciseActivity.LANGUAGE_KEY, language);
-        intent.putExtra(SelectImagesExerciseActivity.EXERCISE_TYPE, exerciseType);
-        context.startActivity(intent);
     }
 
 }

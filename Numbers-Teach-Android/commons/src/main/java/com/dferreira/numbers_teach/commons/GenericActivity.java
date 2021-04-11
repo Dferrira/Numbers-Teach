@@ -1,11 +1,12 @@
 package com.dferreira.numbers_teach.commons;
 
+import android.text.TextUtils;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
-import android.text.TextUtils;
 
 
 /**

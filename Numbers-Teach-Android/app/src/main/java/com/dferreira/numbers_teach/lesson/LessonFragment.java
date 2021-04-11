@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.generic.gestures.SwipeDetector;
 import com.dferreira.numbers_teach.generic.ui.ILabeledFragment;
@@ -22,10 +22,9 @@ import com.dferreira.numbers_teach.generic.ui.ILabeledHandler;
 import com.dferreira.numbers_teach.generic.ui.ILanguageActivity;
 import com.dferreira.numbers_teach.generic.ui.IPlayFragment;
 import com.dferreira.numbers_teach.generic.ui.IPlayHandler;
+import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 import java.util.Date;
-
-import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 /**
  * Fragment with a lesson_fragment of 3D objects to show

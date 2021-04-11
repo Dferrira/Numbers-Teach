@@ -2,11 +2,10 @@ package com.dferreira.numbers_teach.preferences;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
-
-
-import android.view.MenuItem;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.GenericActivity;

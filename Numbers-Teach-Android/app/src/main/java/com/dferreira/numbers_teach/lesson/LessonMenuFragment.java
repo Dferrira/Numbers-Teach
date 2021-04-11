@@ -24,13 +24,10 @@ import com.dferreira.numbers_teach.helpers.ErrorString;
  */
 public class LessonMenuFragment extends Fragment implements
         View.OnClickListener, ILabeledHandler, IPlayHandler {
-    private TextView imageCounter;
-    private ImageButton againBtn, backBtn, playBtn, pauseBtn, nextBtn;
-
-
     @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "LessonMenuFragment";
-
+    private TextView imageCounter;
+    private ImageButton againBtn, backBtn, playBtn, pauseBtn, nextBtn;
     /*Delegator that is going to treat the click in the buttons that control the play sequence*/
     private LessonMenuDelegator menuDelegator;
 
@@ -54,7 +51,7 @@ public class LessonMenuFragment extends Fragment implements
      * Bind the the views to the respective variables
      */
     private void bindViews() {
-                /* Get all view controllers */
+        /* Get all view controllers */
         this.imageCounter = (TextView) getActivity().findViewById(R.id.imageCounter);
         this.againBtn = (ImageButton) getActivity().findViewById(R.id.againBtn);
         this.backBtn = (ImageButton) getActivity().findViewById(R.id.backBtn);

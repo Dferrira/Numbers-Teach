@@ -21,6 +21,15 @@ public class DroppableListener implements View.OnDragListener {
 
     /*Specify where content will be set*/
     private ISelectedChoice target;
+    /*Action to take when a view is dropped*/
+    private DropAction dropAction;
+
+    /**
+     * Constructor of the droppable listener
+     */
+    public DroppableListener() {
+        this.dropAction = DropAction.MOVE_VIEW; //Drop action by default
+    }
 
     /**
      * Specify where content will be set
@@ -31,24 +40,12 @@ public class DroppableListener implements View.OnDragListener {
         this.target = target;
     }
 
-    /*Action to take when a view is dropped*/
-    private DropAction dropAction;
-
     /**
      * @param dropAction Action to take when a view is drop
      */
     public void setDropAction(DropAction dropAction) {
         this.dropAction = dropAction;
     }
-
-
-    /**
-     * Constructor of the droppable listener
-     */
-    public DroppableListener() {
-        this.dropAction = DropAction.MOVE_VIEW; //Drop action by default
-    }
-
 
     /**
      * Define what to do in the drag action
