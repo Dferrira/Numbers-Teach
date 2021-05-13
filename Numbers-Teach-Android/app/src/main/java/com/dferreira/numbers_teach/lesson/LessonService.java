@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 
 import com.dferreira.numbers_teach.NumberTeachApplication;
-import com.dferreira.numbers_teach.commons.GenericStudySet;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.delegators.AudioDelegator;
 import com.dferreira.numbers_teach.preferences.PreferencesUtils;
@@ -238,7 +237,7 @@ public class LessonService extends IntentService {
                 startIndex = lastKnowValue;
                 lastKnowValue = null;
             }
-            this.totalSlides = studySet.getNumberCount();
+            this.totalSlides = studySet.getCounter(this.language);
 
 
             while (true) {

@@ -3,7 +3,6 @@ package com.dferreira.numbers_teach;
 import android.app.Application;
 
 import com.dferreira.numbers_teach.activities_list.ActivitiesListActivity;
-import com.dferreira.numbers_teach.commons.GenericStudySet;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.languages_dashboard.views.LanguagesDashboardFragment;
 import com.dferreira.numbers_teach.numbers.models.StudySet;

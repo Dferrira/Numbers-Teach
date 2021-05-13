@@ -7,7 +7,6 @@ import android.text.TextUtils;
 
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.R;
-import com.dferreira.numbers_teach.commons.GenericStudySet;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.delegators.AudioDelegator;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
@@ -283,7 +282,7 @@ public class SelectImagesExerciseService extends IntentService {
             } else {
                 score = 0;
             }
-            this.totalSlides = studySet.getNumberCount();
+            this.totalSlides = studySet.getCounter(this.language);
 
             int playingIndex = startIndex;
 

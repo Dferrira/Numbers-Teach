@@ -1,14 +1,12 @@
 package com.dferreira.numbers_teach.commons
 
-import android.content.Context
-
 interface IGenericStudySet {
-    fun getAudioLabel(language: String?, index: Int): String
+    fun getAudioLabel(language: String, index: Int): String
 
     /**
      * @return Number of images available to show to the user
      */
-    fun getNumberCount(): Int
+    fun getCounter(language:String): Int
 
     /**
      * @param language Language that the user is learning and want to see
@@ -27,5 +25,5 @@ interface IGenericStudySet {
      * @param indexes Index of the images to show
      * @return The paths of the images to be show to the user taking in account the passed arguments
      */
-    fun getImagesPath(indexes: IntArray?): Array<String>
+    fun getImagesPath(indexes: IntArray): Array<String>
 }
