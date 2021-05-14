@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.ui.menu_item_to_exercise_type_converter.IMenuItemToExerciseTypeConverter;
+import com.dferreira.numbers_teach.exercise_icons.ui.menu_item_to_exercise_type_converter.MenuItemToExerciseTypeConverter;
 import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.generic.ui.ILanguageActivity;
 import com.dferreira.numbers_teach.select_images_exercise.SelectImagesExerciseActivity;
@@ -27,6 +29,7 @@ public class ActivitiesListFragment extends Fragment {
     private ListView listOfActivities;
     private ActivitiesListAdapter activitiesListAdapter;
 
+    private IMenuItemToExerciseTypeConverter menuItemToExerciseTypeConverter;
 
     /**
      * Create of inflate  the Fragment's UI, and return it.
@@ -40,6 +43,7 @@ public class ActivitiesListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        menuItemToExerciseTypeConverter = new MenuItemToExerciseTypeConverter();
         return inflater.inflate(R.layout.activities_list_fragment, container, false);
     }
 
@@ -94,7 +98,7 @@ public class ActivitiesListFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        ExerciseType exerciseType = ExerciseIconsHelper.getTypeOfExercise(item);
+        ExerciseType exerciseType = menuItemToExerciseTypeConverter.toExerciseType(item);
 
         if (exerciseType == null) {
             return super.onOptionsItemSelected(item);

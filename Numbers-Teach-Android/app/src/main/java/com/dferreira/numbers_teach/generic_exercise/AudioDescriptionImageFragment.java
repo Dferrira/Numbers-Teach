@@ -19,6 +19,9 @@ import androidx.fragment.app.Fragment;
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.drag_and_drop.DropAction;
 import com.dferreira.numbers_teach.drag_and_drop.DroppableListener;
+import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescription;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescriptionFactory;
 import com.dferreira.numbers_teach.generic.ui.IExerciseActivity;
 import com.dferreira.numbers_teach.generic.ui.ILabeledHandler;
 import com.dferreira.numbers_teach.helpers.ErrorString;
@@ -87,9 +90,12 @@ public class AudioDescriptionImageFragment extends Fragment implements ISelected
     private void hideUIViews() {
         if (getActivity() instanceof IExerciseActivity) {
             IExerciseActivity activity = (IExerciseActivity) getActivity();
-            this.withAudio = activity.getExerciseType().isWithAudio();
+            ExerciseType exerciseType = activity.getExerciseType();
+            ExerciseTypeDescriptionFactory exerciseDescriptionFactory = new ExerciseTypeDescriptionFactory();
+            ExerciseTypeDescription exerciseTypeDescription = exerciseDescriptionFactory.createDescription(exerciseType);
+            this.withAudio = exerciseTypeDescription.isWithAudio();
             /*Indicates if should or not show the label to the user*/
-            boolean withText = activity.getExerciseType().isWithText();
+            boolean withText = exerciseTypeDescription.getWithText();
             if (!this.withAudio) {
                 this.audioDescriptionTv.setCompoundDrawables(null, null, null, null);
             }

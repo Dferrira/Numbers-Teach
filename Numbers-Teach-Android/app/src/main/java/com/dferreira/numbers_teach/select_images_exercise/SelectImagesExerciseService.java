@@ -10,6 +10,8 @@ import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.delegators.AudioDelegator;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescription;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescriptionFactory;
 import com.dferreira.numbers_teach.generic_exercise.ExerciseMsgType;
 import com.dferreira.numbers_teach.generic_exercise.UserActionMsgProvider;
 import com.dferreira.numbers_teach.helpers.ExercisesHelper;
@@ -194,7 +196,9 @@ public class SelectImagesExerciseService extends IntentService {
         if ((lastIndexPlayed != playingIndex) && (playingIndex < this.totalSlides)) {
             int randomIndex = indexes[playingIndex];
             this.sendCurrentSlideUINotification(randomIndex);
-            if (exerciseType.isWithAudio()) {
+            ExerciseTypeDescriptionFactory exerciseDescriptionFactory = new ExerciseTypeDescriptionFactory();
+            ExerciseTypeDescription exerciseTypeDescription = exerciseDescriptionFactory.createDescription(exerciseType);
+            if (exerciseTypeDescription.isWithAudio()) {
                 String audioPath = studySet.getAudioPath(this.language, randomIndex);
                 this.audioDelegator.playPath(audioPath);
                 this.audioDelegator.waitCompleteAudio();
@@ -251,7 +255,9 @@ public class SelectImagesExerciseService extends IntentService {
                 case OPTION_SELECT:
                     return evaluateUserChoice(intent, playingIndex);
                 case REPLAY_AUDIO:
-                    if (exerciseType.isWithAudio()) {
+                    ExerciseTypeDescriptionFactory exerciseDescriptionFactory = new ExerciseTypeDescriptionFactory();
+                    ExerciseTypeDescription exerciseTypeDescription = exerciseDescriptionFactory.createDescription(exerciseType);
+                    if (exerciseTypeDescription.isWithAudio()) {
                         replayAudio();
                     }
                     return playingIndex;

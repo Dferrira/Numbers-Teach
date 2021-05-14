@@ -4,6 +4,8 @@ package com.dferreira.numbers_teach.activities_list;
 import android.os.Bundle;
 import android.view.Menu;
 
+import androidx.annotation.NonNull;
+
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.GenericActivity;
 import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
@@ -28,11 +30,7 @@ public class ActivitiesListActivity extends GenericActivity implements ILanguage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            this.languageSelected = getIntent().getStringExtra(LanguagesDashboardFragment.LANGUAGE_KEY);
-        } else {
-            this.languageSelected = savedInstanceState.getString(LanguagesDashboardFragment.LANGUAGE_KEY);
-        }
+        this.languageSelected = getLanguageSelected(savedInstanceState);
 
         this.setContentView(R.layout.activities_list_activity);
 
@@ -40,10 +38,19 @@ public class ActivitiesListActivity extends GenericActivity implements ILanguage
         setupActionBar(resFlagId);
     }
 
+    private String getLanguageSelected(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            return getIntent().getStringExtra(LanguagesDashboardFragment.LANGUAGE_KEY);
+        } else {
+            return savedInstanceState.getString(LanguagesDashboardFragment.LANGUAGE_KEY);
+        }
+    }
+
 
     /**
      * Return the language selected by the user know by the activity
      */
+    @NonNull
     @Override
     public String getLanguagePrefix() {
         return this.languageSelected;

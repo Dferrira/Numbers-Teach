@@ -7,6 +7,8 @@ import android.view.View;
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.GenericActivity;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_icon.ExerciseTypeIcon;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_icon.ExerciseTypeIconFactory;
 import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.generic.ui.IScoreExerciseActivity;
 
@@ -51,12 +53,13 @@ public class ExerciseScoresListActivity extends GenericActivity implements IScor
      * Depending which was the exercise selected will show the matching icon
      */
     private void setIconTitle() {
-        if (exerciseType != null) {
-            Integer iconId = ExerciseIconsHelper.getExerciseIcon(exerciseType);
-            if (iconId != null) {
-                setupActionBar(iconId);
-            }
+        if (exerciseType == null) {
+            return;
         }
+        ExerciseTypeIconFactory exerciseTypeIconFactory = new ExerciseTypeIconFactory();
+        ExerciseTypeIcon icon = exerciseTypeIconFactory.createIcon(exerciseType);
+        Integer iconId = icon.getExerciseIcon();
+        setupActionBar(iconId);
     }
 
     /**
