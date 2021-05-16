@@ -9,7 +9,6 @@ import com.dferreira.numbers_teach.commons.GenericActivity;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_icon.ExerciseTypeIcon;
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_icon.ExerciseTypeIconFactory;
-import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
 import com.dferreira.numbers_teach.generic.ui.IScoreExerciseActivity;
 
 /**
