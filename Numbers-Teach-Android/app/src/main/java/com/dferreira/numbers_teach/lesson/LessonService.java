@@ -72,7 +72,7 @@ public class LessonService extends IntentService {
         LessonService.toRestoreState = true;
         this.isPlaying = true;
         this.lastIndexPlayed = -1;
-        this.studySet = NumberTeachApplication.getStudySetInstance();
+        this.studySet = NumberTeachApplication.Companion.getStudySetInstance();
         LessonService.instance = this;
     }
 

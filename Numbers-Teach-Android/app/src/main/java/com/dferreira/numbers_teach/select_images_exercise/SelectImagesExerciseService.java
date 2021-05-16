@@ -134,7 +134,7 @@ public class SelectImagesExerciseService extends IntentService {
 
         this.lastIndexPlayed = -1;
         this.indexes = ExercisesHelper.generateIndexes(0, NUMBER_OF_SLIDES, NUMBER_OF_SLIDES);
-        this.studySet = NumberTeachApplication.getStudySetInstance();
+        this.studySet = NumberTeachApplication.Companion.getStudySetInstance();
 
     }
 
