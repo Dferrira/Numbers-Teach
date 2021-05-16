@@ -43,19 +43,8 @@ public class ExerciseResult {
     /**
      * Indicate if the user go the score watching pictures
      */
-    public static final String WITH_PICTURE_COLUMN = "with_picture";
+    public static final String EXERCISE_TYPE_COLUMN = "exercise_type";
 
-
-    /**
-     * Indicate if the user go the score listening audio
-     */
-    public static final String WITH_AUDIO_COLUMN = "with_audio";
-
-
-    /**
-     * Indicate if the user go the score reading text
-     */
-    public static final String WITH_TEXT_COLUMN = "with_text";
 
     @DatabaseField(generatedId = true)
     private Long id;
@@ -75,14 +64,9 @@ public class ExerciseResult {
     @DatabaseField(columnName = CREATED_DATE_COLUMN)
     private Date createdDate;
 
-    @DatabaseField(columnName = WITH_PICTURE_COLUMN)
-    private boolean withPicture;
+    @DatabaseField(columnName = EXERCISE_TYPE_COLUMN)
+    private ExerciseType exerciseType;
 
-    @DatabaseField(columnName = WITH_AUDIO_COLUMN)
-    private boolean withAudio;
-
-    @DatabaseField(columnName = WITH_TEXT_COLUMN)
-    private boolean withText;
 
     /**
      * @return The identifier of the entity in database
@@ -181,60 +165,12 @@ public class ExerciseResult {
         this.createdDate = createdDate;
     }
 
-    /**
-     * @return Indicates if the user was seeing the correct picture when got the result
-     */
-    public boolean isWithPicture() {
-        return withPicture;
-    }
 
-    /**
-     * Set if the user was seeing the correct picture when got the result
-     *
-     * @param withPicture the value of the flag
-     */
-    public void setWithPicture(boolean withPicture) {
-        this.withPicture = withPicture;
-    }
-
-    /**
-     * @return Indicates if the user was listening the correct audio when got the result
-     */
-    public boolean isWithAudio() {
-        return withAudio;
-    }
-
-    /**
-     * Set the flag that indicates if the audio was produced when the user got the result
-     *
-     * @param withAudio The result of the flag itself
-     */
-    public void setWithAudio(boolean withAudio) {
-        this.withAudio = withAudio;
-    }
-
-    /**
-     * @return Indicates if was show to the user the corresponding text
-     */
-    public boolean isWithText() {
-        return withText;
-    }
-
-    /**
-     * Set the flag that indicates if was present to the user the right text
-     *
-     * @param withText Set the flag itself
-     */
-    public void setWithText(boolean withText) {
-        this.withText = withText;
-    }
-
-    /**
-     * @return Get the the exercise type associated with this exercise result
-     */
-    @SuppressWarnings("UnnecessaryLocalVariable")
     public ExerciseType getExerciseType() {
-        ExerciseType exerciseType = new ExerciseType(isWithPicture(), isWithAudio(), isWithText(), null);
         return exerciseType;
+    }
+
+    public void setExerciseType(ExerciseType exerciseType) {
+        this.exerciseType = exerciseType;
     }
 }

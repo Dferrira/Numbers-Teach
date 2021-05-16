@@ -10,6 +10,8 @@ import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.generic.ui.IExerciseActivity;
 
+import java.io.Serializable;
+
 /**
  * Activity to pick the right image giving the sound and description
  */
@@ -36,7 +38,7 @@ public class SelectImagesExerciseActivity extends FragmentActivity implements IE
     public static void startSelectImagesExerciseActivity(Context context, String language, ExerciseType exerciseType) {
         Intent intent = new Intent(context, SelectImagesExerciseActivity.class);
         intent.putExtra(SelectImagesExerciseActivity.LANGUAGE_KEY, language);
-        intent.putExtra(SelectImagesExerciseActivity.EXERCISE_TYPE, exerciseType);
+        intent.putExtra(SelectImagesExerciseActivity.EXERCISE_TYPE, (Serializable) exerciseType);
         context.startActivity(intent);
     }
 

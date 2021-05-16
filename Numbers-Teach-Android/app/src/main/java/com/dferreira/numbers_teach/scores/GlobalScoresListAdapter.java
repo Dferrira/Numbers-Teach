@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dferreira.numbers_teach.R;
-import com.dferreira.numbers_teach.exercise_icons.views.ExerciseIconsHelper;
+import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_icon.ExerciseTypeIcon;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_icon.ExerciseTypeIconFactory;
 import com.dferreira.numbers_teach.generic.ui.IScoreExerciseActivity;
 import com.dferreira.numbers_teach.models.ExerciseResult;
 import com.dferreira.numbers_teach.repositories.ExerciseResultRepository;
@@ -72,10 +74,16 @@ public class GlobalScoresListAdapter extends ArrayAdapter<ExerciseScoreIconHolde
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.global_score_item, parent, false);
-            holder = new ExerciseScoreIconHolder();
-            holder.icon = (ImageView) convertView.findViewById(R.id.icon);
-            holder.date = (TextView) convertView.findViewById(R.id.date);
-            holder.score = (TextView) convertView.findViewById(R.id.score);
+
+            ImageView icon = (ImageView) convertView.findViewById(R.id.icon);
+            TextView date = (TextView) convertView.findViewById(R.id.date);
+            TextView score = (TextView) convertView.findViewById(R.id.score);
+            holder = new ExerciseScoreIconHolder(
+                    icon,
+                    date,
+                    score
+                    );
+
             convertView.setTag(holder);
         } else {
             holder = (ExerciseScoreIconHolder) convertView.getTag();
@@ -87,15 +95,18 @@ public class GlobalScoresListAdapter extends ArrayAdapter<ExerciseScoreIconHolde
 
         String scoresFormat = getContext().getResources().getString(R.string.scores_format);
         String scoreLabel = String.format(scoresFormat, finalScore, maxScore);
-        Integer imageResourceId = ExerciseIconsHelper.getExerciseIcon(item.getExerciseType());
+        ExerciseType exerciseType = item.getExerciseType();
+        ExerciseTypeIconFactory exerciseTypeIconFactory = new ExerciseTypeIconFactory();
+        ExerciseTypeIcon icon = exerciseTypeIconFactory.createIcon(exerciseType);
+        Integer imageResourceId = icon.getExerciseIcon();
         if (imageResourceId == null) {
-            holder.icon.setVisibility(View.INVISIBLE);
+            holder.getIcon().setVisibility(View.INVISIBLE);
         } else {
-            holder.icon.setVisibility(View.VISIBLE);
-            holder.icon.setImageResource(imageResourceId);
+            holder.getIcon().setVisibility(View.VISIBLE);
+            holder.getIcon().setImageResource(imageResourceId);
         }
-        holder.date.setText(dateStr);
-        holder.score.setText(scoreLabel);
+        holder.getDate().setText(dateStr);
+        holder.getScore().setText(scoreLabel);
 
         return convertView;
     }

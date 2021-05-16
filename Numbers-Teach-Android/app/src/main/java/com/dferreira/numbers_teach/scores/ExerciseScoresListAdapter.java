@@ -77,9 +77,14 @@ public class ExerciseScoresListAdapter extends ArrayAdapter<ExerciseScoreIconHol
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.exercise_score_item, parent, false);
-            holder = new ExerciseScoreIconHolder();
-            holder.date = (TextView) convertView.findViewById(R.id.date);
-            holder.score = (TextView) convertView.findViewById(R.id.score);
+            TextView date = (TextView) convertView.findViewById(R.id.date);
+            TextView score = (TextView) convertView.findViewById(R.id.score);
+
+            holder = new ExerciseScoreIconHolder(
+                    null,
+                    date,
+                    score);
+
             convertView.setTag(holder);
         } else {
             holder = (ExerciseScoreIconHolder) convertView.getTag();
@@ -90,8 +95,8 @@ public class ExerciseScoresListAdapter extends ArrayAdapter<ExerciseScoreIconHol
         int maxScore = item.getMaxScore();
         String scoresFormat = getContext().getResources().getString(R.string.scores_format);
         String scoreLabel = String.format(scoresFormat, finalScore, maxScore);
-        holder.date.setText(dateStr);
-        holder.score.setText(scoreLabel);
+        holder.getDate().setText(dateStr);
+        holder.getScore().setText(scoreLabel);
 
         return convertView;
     }

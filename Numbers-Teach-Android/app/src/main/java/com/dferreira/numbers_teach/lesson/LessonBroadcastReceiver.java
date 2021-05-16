@@ -13,7 +13,9 @@ import android.widget.ViewFlipper;
 import com.dferreira.numbers_teach.generic.ui.DeviceStretcher;
 import com.dferreira.numbers_teach.generic.ui.ILabeledHandler;
 import com.dferreira.numbers_teach.generic.ui.IPlayHandler;
-import com.dferreira.numbers_teach.generic.ui.ISequenceHandler;
+import com.dferreira.numbers_teach.lesson.slide_animator.ISlideAnimator;
+import com.dferreira.numbers_teach.lesson.slide_animator.LessonSlideAnimator;
+import com.dferreira.numbers_teach.lesson.slide_animator.SlideAnimatorFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +29,7 @@ public class LessonBroadcastReceiver extends BroadcastReceiver {
 
     private final ILabeledHandler labeledView;
     private final IPlayHandler playView;
-    private final ISequenceHandler sequenceHandler;
+    private final ISlideAnimator slideAnimator;
     private final Activity activity;
     private final DeviceStretcher deviceStretcher;
     private List<TextView> imgDescriptions;
@@ -43,7 +45,8 @@ public class LessonBroadcastReceiver extends BroadcastReceiver {
     public LessonBroadcastReceiver(Activity activity, ViewFlipper flipper, ILabeledHandler labelView, IPlayHandler playView) {
         this.labeledView = labelView;
         this.playView = playView;
-        this.sequenceHandler = new LessonSlideAnimator(activity, flipper);
+        SlideAnimatorFactory slideAnimatorFactory = new SlideAnimatorFactory();
+        this.slideAnimator = slideAnimatorFactory.createSlideAnimator(activity, flipper);
         this.previousIndex = 0;
         this.activity = activity;
 
@@ -130,14 +133,14 @@ public class LessonBroadcastReceiver extends BroadcastReceiver {
         //If the new index bigger needs to forward
         if (previousIndex < index) {
             for (int i = 0; i < (index - previousIndex); i++) {
-                this.sequenceHandler.forward();
+                this.slideAnimator.showNext();
             }
         }
 
         //If the new index smaller need to go back
         if (previousIndex > index) {
             for (int i = 0; i < (previousIndex - index); i++) {
-                this.sequenceHandler.previous();
+                this.slideAnimator.showPrevious();
             }
         }
 

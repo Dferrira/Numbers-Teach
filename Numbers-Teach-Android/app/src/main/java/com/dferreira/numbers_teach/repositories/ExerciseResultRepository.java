@@ -50,9 +50,7 @@ public class ExerciseResultRepository {
         exerciseResult.setFinalScore(finalScore);
         exerciseResult.setMaxScore(maxScore);
         exerciseResult.setCreatedDate(currentDate);
-        exerciseResult.setWithPicture(exerciseType.isWithPicture());
-        exerciseResult.setWithAudio(exerciseType.isWithAudio());
-        exerciseResult.setWithText(exerciseType.isWithText());
+        exerciseResult.setExerciseType(exerciseType);
         try {
             dbHelper.getExerciseResultDao().create(exerciseResult);
         } catch (Exception e) {
@@ -70,9 +68,7 @@ public class ExerciseResultRepository {
             Where<ExerciseResult, Long> where = queryBuilder.where();
             where.eq(ExerciseResult.LANGUAGE_COLUMN, language);
             queryBuilder.groupBy(ExerciseResult.ACTIVITY_COLUMN);
-            queryBuilder.groupBy(ExerciseResult.WITH_PICTURE_COLUMN);
-            queryBuilder.groupBy(ExerciseResult.WITH_AUDIO_COLUMN);
-            queryBuilder.groupBy(ExerciseResult.WITH_TEXT_COLUMN);
+            queryBuilder.groupBy(ExerciseResult.EXERCISE_TYPE_COLUMN);
             queryBuilder.orderBy(ExerciseResult.CREATED_DATE_COLUMN, false);
             return dbHelper.getExerciseResultDao().query(where.prepare());
         } catch (Exception e) {
@@ -95,9 +91,8 @@ public class ExerciseResultRepository {
             where.and(
                     where.eq(ExerciseResult.LANGUAGE_COLUMN, language),
                     where.eq(ExerciseResult.ACTIVITY_COLUMN, activity),
-                    where.eq(ExerciseResult.WITH_PICTURE_COLUMN, exerciseType.isWithPicture()),
-                    where.eq(ExerciseResult.WITH_AUDIO_COLUMN, exerciseType.isWithAudio()),
-                    where.eq(ExerciseResult.WITH_TEXT_COLUMN, exerciseType.isWithText()));
+                    where.eq(ExerciseResult.EXERCISE_TYPE_COLUMN, exerciseType)
+            );
             queryBuilder.orderBy(ExerciseResult.CREATED_DATE_COLUMN, false);
             return dbHelper.getExerciseResultDao().query(where.prepare());
         } catch (Exception e) {

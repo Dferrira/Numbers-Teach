@@ -7,9 +7,11 @@ import android.text.TextUtils;
 
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.R;
-import com.dferreira.numbers_teach.commons.GenericStudySet;
+import com.dferreira.numbers_teach.commons.IGenericStudySet;
 import com.dferreira.numbers_teach.delegators.AudioDelegator;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescription;
+import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescriptionFactory;
 import com.dferreira.numbers_teach.generic_exercise.ExerciseMsgType;
 import com.dferreira.numbers_teach.generic_exercise.UserActionMsgProvider;
 import com.dferreira.numbers_teach.helpers.ExercisesHelper;
@@ -116,7 +118,7 @@ public class SelectImagesExerciseService extends IntentService {
      * Reference to the study set that is going to be used
      * to provide the set of resources
      */
-    private final GenericStudySet studySet;
+    private final IGenericStudySet studySet;
 
     /**
      * Starts the sequence audio handler
@@ -132,7 +134,7 @@ public class SelectImagesExerciseService extends IntentService {
 
         this.lastIndexPlayed = -1;
         this.indexes = ExercisesHelper.generateIndexes(0, NUMBER_OF_SLIDES, NUMBER_OF_SLIDES);
-        this.studySet = NumberTeachApplication.getStudySetInstance();
+        this.studySet = NumberTeachApplication.Companion.getStudySetInstance();
 
     }
 
@@ -178,7 +180,7 @@ public class SelectImagesExerciseService extends IntentService {
      * @param playingIndex Index of the audio to play
      */
     private void sendCurrentSlideUINotification(int playingIndex) {
-        String label = studySet.getAudioLabel(this, this.language, playingIndex);
+        String label = studySet.getAudioLabel(this.language, playingIndex);
         int[] selectableIndexes = ExercisesHelper.generateIndexesOptions(playingIndex, totalSlides, NUMBER_OPTIONS);
         String[] images2DPath = studySet.getImagesPath(selectableIndexes);
         Object[] tags = ExercisesHelper.getTags(selectableIndexes);
@@ -194,7 +196,9 @@ public class SelectImagesExerciseService extends IntentService {
         if ((lastIndexPlayed != playingIndex) && (playingIndex < this.totalSlides)) {
             int randomIndex = indexes[playingIndex];
             this.sendCurrentSlideUINotification(randomIndex);
-            if (exerciseType.isWithAudio()) {
+            ExerciseTypeDescriptionFactory exerciseDescriptionFactory = new ExerciseTypeDescriptionFactory();
+            ExerciseTypeDescription exerciseTypeDescription = exerciseDescriptionFactory.createDescription(exerciseType);
+            if (exerciseTypeDescription.isWithAudio()) {
                 String audioPath = studySet.getAudioPath(this.language, randomIndex);
                 this.audioDelegator.playPath(audioPath);
                 this.audioDelegator.waitCompleteAudio();
@@ -251,7 +255,9 @@ public class SelectImagesExerciseService extends IntentService {
                 case OPTION_SELECT:
                     return evaluateUserChoice(intent, playingIndex);
                 case REPLAY_AUDIO:
-                    if (exerciseType.isWithAudio()) {
+                    ExerciseTypeDescriptionFactory exerciseDescriptionFactory = new ExerciseTypeDescriptionFactory();
+                    ExerciseTypeDescription exerciseTypeDescription = exerciseDescriptionFactory.createDescription(exerciseType);
+                    if (exerciseTypeDescription.isWithAudio()) {
                         replayAudio();
                     }
                     return playingIndex;
@@ -282,7 +288,7 @@ public class SelectImagesExerciseService extends IntentService {
             } else {
                 score = 0;
             }
-            this.totalSlides = studySet.getNumberCount();
+            this.totalSlides = studySet.getCounter(this.language);
 
             int playingIndex = startIndex;
 

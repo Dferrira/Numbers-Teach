@@ -42,13 +42,14 @@ public class SelectImagesExerciseFragment extends Fragment {
      * @param exerciseType Type of exercise
      */
     private void startAudioService(Activity activity, String language, ExerciseType exerciseType) {
-        if (!SelectImagesExerciseService.isRunning()) {
-            Intent intent = new Intent(activity, SelectImagesExerciseService.class);
-            intent.putExtra(SelectImagesExerciseService.ACTIVITY_NAME, activity.getClass().getName());
-            intent.putExtra(SelectImagesExerciseService.LANGUAGE, language);
-            intent.putExtra(SelectImagesExerciseService.TYPE_OF_EXERCISE, exerciseType);
-            activity.startService(intent);
+        if (SelectImagesExerciseService.isRunning()) {
+            return;
         }
+        Intent intent = new Intent(activity, SelectImagesExerciseService.class);
+        intent.putExtra(SelectImagesExerciseService.ACTIVITY_NAME, activity.getClass().getName());
+        intent.putExtra(SelectImagesExerciseService.LANGUAGE, language);
+        intent.putExtra(SelectImagesExerciseService.TYPE_OF_EXERCISE, exerciseType);
+        activity.startService(intent);
     }
 
     /**
