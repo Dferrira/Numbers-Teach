@@ -12,9 +12,9 @@ class StudySetFactory {
         )
     }
 
-    public fun CreateStudySet(context: Context): IGenericStudySet {
-
-        return StudySet(context)
+    public fun createStudySet(context: Context): IGenericStudySet {
+        val applicationContext = context.applicationContext
+        return StudySet(applicationContext)
     }
 
 
