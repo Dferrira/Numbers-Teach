@@ -8,7 +8,8 @@ import android.text.TextUtils;
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
-import com.dferreira.numbers_teach.delegators.AudioDelegator;
+import com.dferreira.numbers_teach.delegators.AudioDelegatorFactory;
+import com.dferreira.numbers_teach.delegators.IAudioDelegator;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescription;
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescriptionFactory;
@@ -82,7 +83,7 @@ public class SelectImagesExerciseService extends IntentService {
     /**
      * Class responsible by play audio
      */
-    private final AudioDelegator audioDelegator;
+    private final IAudioDelegator audioDelegator;
 
     //Indicates if the service is already running or not
     private static boolean running = false;
@@ -129,7 +130,8 @@ public class SelectImagesExerciseService extends IntentService {
         SelectImagesExerciseService.activityPaused = null;
         SelectImagesExerciseService.toRestoreState = true;
 
-        this.audioDelegator = new AudioDelegator(this);
+        AudioDelegatorFactory audioDelegatorFactory = new AudioDelegatorFactory();
+        this.audioDelegator = audioDelegatorFactory.createAudioDelegator(this);
         this.audioDelegator.prepareToPlay();
 
         this.lastIndexPlayed = -1;

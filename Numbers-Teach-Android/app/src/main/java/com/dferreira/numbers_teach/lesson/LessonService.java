@@ -7,7 +7,8 @@ import android.text.TextUtils;
 
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
-import com.dferreira.numbers_teach.delegators.AudioDelegator;
+import com.dferreira.numbers_teach.delegators.AudioDelegatorFactory;
+import com.dferreira.numbers_teach.delegators.IAudioDelegator;
 import com.dferreira.numbers_teach.preferences.PreferencesUtils;
 
 import java.util.Date;
@@ -50,7 +51,7 @@ public class LessonService extends IntentService {
      * to provide the set of resources
      */
     private final IGenericStudySet studySet;
-    private final AudioDelegator audioDelegator;
+    private final IAudioDelegator audioDelegator;
     /*Indicates if the service is playing sequentially the audio*/
     private boolean isPlaying;
     private int playingIndex;
@@ -67,7 +68,8 @@ public class LessonService extends IntentService {
         super(TAG);
         LessonService.running = true;
         LessonService.activityPaused = null;
-        this.audioDelegator = new AudioDelegator(this);
+        AudioDelegatorFactory audioDelegatorFactory = new AudioDelegatorFactory();
+        this.audioDelegator = audioDelegatorFactory.createAudioDelegator(this);
         this.audioDelegator.prepareToPlay();
         LessonService.toRestoreState = true;
         this.isPlaying = true;
