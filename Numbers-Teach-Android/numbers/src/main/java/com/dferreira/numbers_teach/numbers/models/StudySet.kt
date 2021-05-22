@@ -103,7 +103,7 @@ class StudySet(
         return if (indexes.isEmpty()) {
             emptyArray()
         } else {
-            indexes.map { index -> getImageFileName(index) }
+            indexes.map { index -> getImagePath(index) }
                 .toTypedArray()
         }
     }
