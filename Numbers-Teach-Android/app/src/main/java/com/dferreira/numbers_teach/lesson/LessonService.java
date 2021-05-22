@@ -166,7 +166,7 @@ public class LessonService extends IntentService {
             this.audioDelegator.playPath(audioPath);
             this.audioDelegator.waitCompleteAudio();
             try {
-                int waitTime = PreferencesUtils.getDelayBetweenSlides(this);
+                int waitTime = PreferencesUtils.INSTANCE.getDelayBetweenSlides(this);
                 if (waitTime != 0) {
                     wait(waitTime);
                 }
