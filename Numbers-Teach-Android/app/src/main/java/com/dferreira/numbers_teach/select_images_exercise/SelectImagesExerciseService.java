@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import com.dferreira.numbers_teach.NumberTeachApplication;
 import com.dferreira.numbers_teach.R;
 import com.dferreira.numbers_teach.commons.IGenericStudySet;
+import com.dferreira.numbers_teach.data_layer.repositories.ExerciseResultRepository;
+import com.dferreira.numbers_teach.data_layer.repositories.ExerciseResultRepositoryFactory;
 import com.dferreira.numbers_teach.delegators.AudioDelegatorFactory;
 import com.dferreira.numbers_teach.delegators.IAudioDelegator;
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
@@ -16,7 +18,7 @@ import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_descripti
 import com.dferreira.numbers_teach.generic_exercise.ExerciseMsgType;
 import com.dferreira.numbers_teach.generic_exercise.UserActionMsgProvider;
 import com.dferreira.numbers_teach.helpers.ExercisesHelper;
-import com.dferreira.numbers_teach.repositories.ExerciseResultRepository;
+import com.dferreira.numbers_teach.data_layer.repositories.ExerciseResultRepositoryImpl;
 
 import java.util.Date;
 
@@ -273,7 +275,8 @@ public class SelectImagesExerciseService extends IntentService {
      * Save in database the score of the user
      */
     private void saveLastResultInDatabase() {
-        ExerciseResultRepository exerciseResultRepository = new ExerciseResultRepository(this);
+        ExerciseResultRepositoryFactory exerciseResultRepositoryFactory = new ExerciseResultRepositoryFactory();
+        ExerciseResultRepository exerciseResultRepository = exerciseResultRepositoryFactory.createExerciseResultRepository(this);
         exerciseResultRepository.saveScore(activityName, language, score, NUMBER_OF_SLIDES, exerciseType);
     }
 
@@ -281,48 +284,49 @@ public class SelectImagesExerciseService extends IntentService {
      * Main loop of the service of exercise to select images
      */
     private void mainLoop() {
-        if (!TextUtils.isEmpty(language)) {
-
-            int startIndex = 0;
-            if (toRestoreState && (lastKnowValue != null)) {
-                startIndex = lastKnowValue;
-                lastKnowValue = null;
-            } else {
-                score = 0;
-            }
-            this.totalSlides = studySet.getCounter(this.language);
-
-            int playingIndex = startIndex;
-
-            while (true) {
-                if (playingIndex == this.totalSlides) {
-                    String finalScoreStr = this.getResources().getString(R.string.final_score);
-                    saveLastResultInDatabase();
-                    sendShowScore(finalScoreStr + Integer.toString(score));
-                    stopSelf();
-                    break;
-                }
-
-                //Play a single audio
-
-
-                playSingleAudio(playingIndex);
-
-
-                playingIndex = handleUserIO(playingIndex);
-
-
-                //If detects that the activity was paused will pause also the service
-                if (stopSelfIfActivityPaused()) {
-                    if (toRestoreState) {
-                        lastKnowValue = playingIndex;
-                    }
-                    stopSelf();
-                    break;
-                }
-            }
-            sendUIFinishingRequest();
+        if (TextUtils.isEmpty(language)) {
+            return;
         }
+
+        int startIndex = 0;
+        if (toRestoreState && (lastKnowValue != null)) {
+            startIndex = lastKnowValue;
+            lastKnowValue = null;
+        } else {
+            score = 0;
+        }
+        this.totalSlides = studySet.getCounter(this.language);
+
+        int playingIndex = startIndex;
+
+        while (true) {
+            if (playingIndex == this.totalSlides) {
+                String finalScoreStr = this.getResources().getString(R.string.final_score);
+                saveLastResultInDatabase();
+                sendShowScore(finalScoreStr + Integer.toString(score));
+                stopSelf();
+                break;
+            }
+
+            //Play a single audio
+
+
+            playSingleAudio(playingIndex);
+
+
+            playingIndex = handleUserIO(playingIndex);
+
+
+            //If detects that the activity was paused will pause also the service
+            if (stopSelfIfActivityPaused()) {
+                if (toRestoreState) {
+                    lastKnowValue = playingIndex;
+                }
+                stopSelf();
+                break;
+            }
+        }
+        sendUIFinishingRequest();
     }
 
     /**

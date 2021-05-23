@@ -1,0 +1,30 @@
+CREATE TABLE exerciseResult (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  activity TEXT NOT NULL,
+  language TEXT NOT NULL,
+  final_score INTEGER NOT NULL,
+  max_score INTEGER NOT NULL,
+  created_date TEXT NOT NULL,
+  exercise_type TEXT NOT NULL
+);
+
+insert:
+INSERT INTO exerciseResult(
+activity,
+language,
+final_score,
+max_score,
+created_date,
+exercise_type
+) VALUES ?;
+
+getGlobalScoresList:
+SELECT *
+FROM exerciseResult
+WHERE language = ? ORDER BY created_date DESC;
+
+getExerciseScoresList:
+SELECT *
+FROM exerciseResult
+WHERE language = ? AND activity = ? AND exercise_type = ? ORDER BY created_date DESC;
+
