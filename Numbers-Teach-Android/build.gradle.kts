@@ -9,7 +9,6 @@ buildscript {
     val appcompat_version by extra("1.3.0")
     val preference_version by extra("1.1.1")
     val minimum_sdk_version by extra(21)
-    val use_new_compiler_backend by extra(true)
     val jvm_target by extra("1.8")
     val compile_sdk_version by extra(30)
     val target_sdk_version by extra(30)
