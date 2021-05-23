@@ -38,7 +38,7 @@ public class LessonMenuFragment extends Fragment implements
      * @param inflater           Responsible for inflating the view
      * @param container          container where the fragment is going to be included
      * @param savedInstanceState bundle with data that was saved in on save instance if any
-     * @return view of the 3D models inflated
+     * @return view of the 3D model inflated
      */
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
