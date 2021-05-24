@@ -16,7 +16,6 @@ import com.dferreira.numbers_teach.helpers.ErrorString;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class DroppableListener implements View.OnDragListener {
 
-    @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "DroppableListener";
 
     /*Specify where content will be set*/

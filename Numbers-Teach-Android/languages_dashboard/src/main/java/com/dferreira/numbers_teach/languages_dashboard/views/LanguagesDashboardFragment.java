@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class LanguagesDashboardFragment extends Fragment implements View.OnClickListener {
 
     /*Key of the language parameter passed to the activity*/
-    @SuppressWarnings("WeakerAccess")
     public final static String LANGUAGE_KEY = "language";
 
     public static Class<?> teachingActivity;

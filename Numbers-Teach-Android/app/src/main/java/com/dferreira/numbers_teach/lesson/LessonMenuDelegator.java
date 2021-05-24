@@ -4,7 +4,6 @@ package com.dferreira.numbers_teach.lesson;
 /**
  * Handles the press of the buttons of the menu
  */
-@SuppressWarnings("WeakerAccess")
 public class LessonMenuDelegator {
 
 

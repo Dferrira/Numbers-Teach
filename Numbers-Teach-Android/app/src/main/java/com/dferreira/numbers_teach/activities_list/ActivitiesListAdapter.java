@@ -107,7 +107,6 @@ public class ActivitiesListAdapter extends ArrayAdapter<ViewHolder> implements V
      * @return A View corresponding to the data at the specified position.
      */
     @NonNull
-    @SuppressWarnings("unchecked")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
@@ -153,7 +152,6 @@ public class ActivitiesListAdapter extends ArrayAdapter<ViewHolder> implements V
      *
      * @param v The view that was clicked.
      */
-    @SuppressWarnings("unchecked")
     @Override
     public void onClick(View v) {
         Pair<ViewHolder, ActivityItem> tag = (Pair<ViewHolder, ActivityItem>) v.getTag();

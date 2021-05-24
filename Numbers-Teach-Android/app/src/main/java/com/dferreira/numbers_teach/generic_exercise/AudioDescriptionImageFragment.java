@@ -37,7 +37,6 @@ public class AudioDescriptionImageFragment extends Fragment implements ISelected
 
 
     private static final String LABEL_KEY = "Label";
-    @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "ADescriptionImageF";
     private TextView audioDescriptionTv;
 

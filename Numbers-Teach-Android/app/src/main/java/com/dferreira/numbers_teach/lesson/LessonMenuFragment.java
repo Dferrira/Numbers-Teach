@@ -24,7 +24,6 @@ import com.dferreira.numbers_teach.helpers.ErrorString;
  */
 public class LessonMenuFragment extends Fragment implements
         View.OnClickListener, ILabeledHandler, IPlayHandler {
-    @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "LessonMenuFragment";
     private TextView imageCounter;
     private ImageButton againBtn, backBtn, playBtn, pauseBtn, nextBtn;

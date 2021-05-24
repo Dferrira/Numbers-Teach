@@ -13,7 +13,6 @@ public class LanguageDashboardHelper {
      * @param languagePrefix Prefix of the language to get the flag
      * @return The identifier to use the flag of the language passed
      */
-    @SuppressWarnings("UnnecessaryLocalVariable")
     public static Integer getLanguageFlagResId(Context context, String languagePrefix) {
         String resourcePrefix = languagePrefix + "_flag";
 

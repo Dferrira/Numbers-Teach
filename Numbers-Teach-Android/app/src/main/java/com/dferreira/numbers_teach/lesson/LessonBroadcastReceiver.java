@@ -83,7 +83,6 @@ public class LessonBroadcastReceiver extends BroadcastReceiver {
         imgDescriptions.get(index % 2).setText(label);
     }
 
-    @SuppressWarnings("ForLoopReplaceableByForEach")
     private void freeImageCanvas(int index) {
         TextView tv = imgDescriptions.get((index) % 2);
         Drawable[] drawables = tv.getCompoundDrawables();

@@ -10,7 +10,6 @@ import com.dferreira.numbers_teach.generic_exercise.ISelectedChoice;
  */
 public class ClickableListener implements View.OnClickListener {
 
-    @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "ClickableListener";
 
     /*Specify where content will be set*/
