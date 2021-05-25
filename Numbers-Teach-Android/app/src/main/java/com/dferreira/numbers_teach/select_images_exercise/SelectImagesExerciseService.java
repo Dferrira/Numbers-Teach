@@ -18,7 +18,6 @@ import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_descripti
 import com.dferreira.numbers_teach.generic_exercise.ExerciseMsgType;
 import com.dferreira.numbers_teach.generic_exercise.UserActionMsgProvider;
 import com.dferreira.numbers_teach.helpers.ExercisesHelper;
-import com.dferreira.numbers_teach.data_layer.repositories.ExerciseResultRepositoryImpl;
 
 import java.util.Date;
 

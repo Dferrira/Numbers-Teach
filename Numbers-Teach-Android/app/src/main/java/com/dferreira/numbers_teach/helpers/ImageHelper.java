@@ -105,7 +105,7 @@ public class ImageHelper {
      *
      * @param drawableOriginal Drawable passed
      */
-    public static LayerDrawable getCardBackground(Context context, Drawable drawableOriginal) {
+    public static LayerDrawable createCardBackground(Context context, Drawable drawableOriginal) {
         Drawable[] layers = new Drawable[2];
         layers[0] = context.getResources().getDrawable(R.drawable.shape_green_strong);
         layers[1] = drawableOriginal;

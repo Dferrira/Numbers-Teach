@@ -197,7 +197,7 @@ public class AudioDescriptionImageFragment extends Fragment implements ISelected
             Log.d(TAG, ErrorString.SOMETHING_GOES_WRONG);
         } else {
             Drawable selectedDrawable = ImageHelper.getDrawable(selectedView);
-            LayerDrawable selectedLayer = ImageHelper.getCardBackground(getContext(), selectedDrawable);
+            LayerDrawable selectedLayer = ImageHelper.createCardBackground(getContext(), selectedDrawable);
             if (selectedDrawable == null) {
                 Log.d(TAG, ErrorString.SOMETHING_GOES_WRONG);
             } else {
