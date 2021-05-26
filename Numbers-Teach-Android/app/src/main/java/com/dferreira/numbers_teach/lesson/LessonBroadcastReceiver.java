@@ -10,11 +10,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.dferreira.numbers_teach.generic.ui.DeviceStretcher;
+import com.dferreira.numbers_teach.generic.ui.device_stretcher.DeviceStretcher;
 import com.dferreira.numbers_teach.generic.ui.ILabeledHandler;
 import com.dferreira.numbers_teach.generic.ui.IPlayHandler;
+import com.dferreira.numbers_teach.generic.ui.device_stretcher.DeviceStretcherFactory;
 import com.dferreira.numbers_teach.lesson.slide_animator.ISlideAnimator;
-import com.dferreira.numbers_teach.lesson.slide_animator.LessonSlideAnimator;
 import com.dferreira.numbers_teach.lesson.slide_animator.SlideAnimatorFactory;
 
 import java.io.IOException;
@@ -42,7 +42,12 @@ public class LessonBroadcastReceiver extends BroadcastReceiver {
      * @param labelView Interface to the place where should put the value of the label
      * @param playView  Interface to update the state of the button play and pause
      */
-    public LessonBroadcastReceiver(Activity activity, ViewFlipper flipper, ILabeledHandler labelView, IPlayHandler playView) {
+    public LessonBroadcastReceiver(
+            Activity activity,
+            ViewFlipper flipper,
+            ILabeledHandler labelView,
+            IPlayHandler playView
+    ) {
         this.labeledView = labelView;
         this.playView = playView;
         SlideAnimatorFactory slideAnimatorFactory = new SlideAnimatorFactory();
@@ -50,7 +55,8 @@ public class LessonBroadcastReceiver extends BroadcastReceiver {
         this.previousIndex = 0;
         this.activity = activity;
 
-        this.deviceStretcher = new DeviceStretcher(activity);
+        DeviceStretcherFactory deviceStretcherFactory = new DeviceStretcherFactory();
+        this.deviceStretcher = deviceStretcherFactory.createDeviceStretcher(activity);
     }
 
     /**

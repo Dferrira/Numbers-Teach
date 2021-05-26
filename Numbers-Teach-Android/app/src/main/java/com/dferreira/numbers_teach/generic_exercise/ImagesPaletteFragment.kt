@@ -74,8 +74,8 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
     private fun setOldEvents() {
         val clickableListener = ClickableListener()
         clickableListener.setTarget(target)
-        for (i in selectableImageList.indices) {
-            selectableImageList[i].setOnClickListener(clickableListener)
+        selectableImageList.forEach {
+                selectableImage -> selectableImage.setOnClickListener(clickableListener)
         }
     }
 
@@ -88,8 +88,8 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private fun setHoneycombEvents() {
         val draggableListener = DraggableListener()
-        for (i in selectableImageList.indices) {
-            selectableImageList[i].setOnTouchListener(draggableListener)
+        selectableImageList.forEach {
+            selectableImage -> selectableImage.setOnTouchListener(draggableListener)
         }
 
         //The the palette itself as droppable so in this case makes nothing

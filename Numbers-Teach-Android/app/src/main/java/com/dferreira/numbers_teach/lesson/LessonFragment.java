@@ -26,9 +26,6 @@ import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 
 import java.util.Date;
 
-/**
- * Fragment with a lesson_fragment of 3D objects to show
- */
 public class LessonFragment extends Fragment implements
         View.OnClickListener, ILabeledFragment, IPlayFragment {
 
@@ -53,11 +50,12 @@ public class LessonFragment extends Fragment implements
      * @param context This Activity it self
      */
     private void startAudioService(Context context, String language) {
-        if (!LessonService.isRunning()) {
-            Intent intent = new Intent(context, LessonService.class);
-            intent.putExtra(LessonService.LANGUAGE, language);
-            context.startService(intent);
+        if (LessonService.isRunning()) {
+            return;
         }
+        Intent intent = new Intent(context, LessonService.class);
+        intent.putExtra(LessonService.LANGUAGE, language);
+        context.startService(intent);
     }
 
     /**
