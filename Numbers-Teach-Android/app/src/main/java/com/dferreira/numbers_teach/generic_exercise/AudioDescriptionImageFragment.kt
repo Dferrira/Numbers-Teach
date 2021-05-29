@@ -72,7 +72,7 @@ class AudioDescriptionImageFragment : Fragment(),
         selectedImage = view.findViewById(R.id.selected_image)
         correctImage = view.findViewById(R.id.correct_image_view)
         wrongImage = view.findViewById(R.id.wrong_image_view)
-        fragment = view.findViewById(R.id.audio_description_img_frag)
+        fragment = view
     }
 
     /**

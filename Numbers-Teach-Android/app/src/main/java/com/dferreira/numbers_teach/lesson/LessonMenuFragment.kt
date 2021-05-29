@@ -61,8 +61,11 @@ class LessonMenuFragment : Fragment(), View.OnClickListener,
         playBtn = view.findViewById(R.id.playBtn)
         pauseBtn = view.findViewById(R.id.pauseBtn)
         nextBtn = view.findViewById(R.id.nextBtn)
-        labeledFragment = view as ILabeledFragment
-        playFragment = view as IPlayFragment
+
+        val parentFragment = requireParentFragment()
+
+        labeledFragment = parentFragment as ILabeledFragment
+        playFragment = parentFragment as IPlayFragment
     }
 
     /**
