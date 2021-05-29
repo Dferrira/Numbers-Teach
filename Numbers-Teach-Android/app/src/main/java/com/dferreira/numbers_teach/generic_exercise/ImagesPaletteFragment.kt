@@ -19,7 +19,7 @@ import com.dferreira.numbers_teach.helpers.ImageHelper
  * Support a bunch of images that can be changed dynamically
  */
 class ImagesPaletteFragment : Fragment(), IImagesPalette {
-    private var imagesPalette: ViewGroup? = null
+    private lateinit var imagesPalette: ViewGroup
     private lateinit var selectableImageList: List<ImageView>
 
     /*Listener that is going to get the click of the user*/
@@ -74,8 +74,8 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
     private fun setOldEvents() {
         val clickableListener = ClickableListener()
         clickableListener.setTarget(target)
-        selectableImageList.forEach {
-                selectableImage -> selectableImage.setOnClickListener(clickableListener)
+        selectableImageList.forEach { selectableImage ->
+            selectableImage.setOnClickListener(clickableListener)
         }
     }
 
@@ -88,14 +88,14 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private fun setHoneycombEvents() {
         val draggableListener = DraggableListener()
-        selectableImageList.forEach {
-            selectableImage -> selectableImage.setOnTouchListener(draggableListener)
+        selectableImageList.forEach { selectableImage ->
+            selectableImage.setOnTouchListener(draggableListener)
         }
 
         //The the palette itself as droppable so in this case makes nothing
         val droppableListener = DroppableListener()
         droppableListener.setDropAction(DropAction.NOTHING)
-        imagesPalette!!.setOnDragListener(droppableListener)
+        imagesPalette.setOnDragListener(droppableListener)
     }
 
 
@@ -154,9 +154,11 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
             TAGS_KEY,
             tags
         )
+        var imageVisibilityList = createImageVisibilityList()
+            .toIntArray()
         stateOut.putIntArray(
             VISIBILITY_FLAGS_KEY,
-            imagesVisibility
+            imageVisibilityList
         )
     }
 
@@ -165,13 +167,14 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
      * And set the respective view in the UI
      */
     private fun updateUIDrawables() {
-        if (paths != null && paths!!.size >= 0) {
-            val drawables = ImageHelper.loadImages(
-                context, paths
-            )
-            for (i in selectableImageList!!.indices) {
-                selectableImageList!![i].setImageDrawable(drawables[i])
-            }
+        if (paths.isEmpty()) {
+            return
+        }
+        val drawables = ImageHelper.loadImages(
+            context, paths
+        )
+        selectableImageList.zip(drawables) { selectableImage, drawable ->
+            selectableImage.setImageDrawable(drawable)
         }
     }
 
@@ -179,10 +182,8 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
      * Set the images as visible
      */
     private fun showImages() {
-        if (selectableImageList != null && selectableImageList!!.size > 0) {
-            for (i in selectableImageList!!.indices) {
-                selectableImageList!![i].visibility = View.VISIBLE
-            }
+        selectableImageList.forEach {
+            it.visibility = View.VISIBLE
         }
     }
 
@@ -201,26 +202,23 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
      * Uses the tags that has
      */
     private fun updateUITags() {
-        if (selectableImageList != null && tags != null && tags!!.size >= 0) {
-            for (i in selectableImageList!!.indices) {
-                selectableImageList!![i].tag = tags!![i]
-            }
+        selectableImageList.zip(tags) {
+            selectableImage, tag -> selectableImage.tag = tag
         }
     }
 
     /**
      * @return An array of the current visibilities of the images in the palette of images
      */
-    private val imagesVisibility: IntArray?
-        private get() = if (selectableImageList == null || selectableImageList!!.isEmpty()) {
-            null
+    private fun createImageVisibilityList(): List<Int> {
+        return if (selectableImageList.isEmpty()) {
+            emptyList()
         } else {
-            val visibilities = IntArray(selectableImageList!!.size)
-            for (i in selectableImageList!!.indices) {
-                visibilities[i] = selectableImageList!![i].visibility
-            }
-            visibilities
+            selectableImageList
+                .map { selectableImage -> selectableImage.visibility }
         }
+    }
+
 
     /**
      * Uses the flags of visibility to update the state of the UI
