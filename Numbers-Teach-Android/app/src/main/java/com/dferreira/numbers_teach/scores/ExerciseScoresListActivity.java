@@ -17,7 +17,6 @@ import com.dferreira.numbers_teach.generic.ui.IScoreExerciseActivity;
 public class ExerciseScoresListActivity extends GenericActivity implements IScoreExerciseActivity {
 
     /*Key of the language parameter passed to the activity*/
-    @SuppressWarnings("WeakerAccess")
     public final static String LANGUAGE_KEY = "language";
 
     public final static String EXERCISE_ACTIVITY_KEY = "exercise_activity";

@@ -13,7 +13,6 @@ import com.dferreira.numbers_teach.generic.ui.ILanguageActivity;
 public class LessonActivity extends FragmentActivity implements ILanguageActivity {
 
     /*Key of the language parameter passed to the activity*/
-    @SuppressWarnings("WeakerAccess")
     public final static String LANGUAGE_KEY = "language";
 
 

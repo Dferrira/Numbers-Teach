@@ -12,17 +12,13 @@ abstract class GenericActivity : AppCompatActivity() {
     /**
      * Setup the elements of the action bar of the activity
      */
-    protected fun setupActionBar(iconResourceId: Int?) {
+    protected fun setupActionBar(iconResourceId: Int) {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar ?: return
         //Show the back button
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        //Change the order of the image
-        if (iconResourceId == null) {
-            return
-        }
         val titleStr = actionBar.title
         if (titleStr.isNullOrBlank()) {
             return

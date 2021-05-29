@@ -37,7 +37,6 @@ public class AudioDescriptionImageFragment extends Fragment implements ISelected
 
 
     private static final String LABEL_KEY = "Label";
-    @SuppressWarnings("FieldCanBeLocal")
     private final String TAG = "ADescriptionImageF";
     private TextView audioDescriptionTv;
 
@@ -198,7 +197,7 @@ public class AudioDescriptionImageFragment extends Fragment implements ISelected
             Log.d(TAG, ErrorString.SOMETHING_GOES_WRONG);
         } else {
             Drawable selectedDrawable = ImageHelper.getDrawable(selectedView);
-            LayerDrawable selectedLayer = ImageHelper.getCardBackground(getContext(), selectedDrawable);
+            LayerDrawable selectedLayer = ImageHelper.createCardBackground(getContext(), selectedDrawable);
             if (selectedDrawable == null) {
                 Log.d(TAG, ErrorString.SOMETHING_GOES_WRONG);
             } else {

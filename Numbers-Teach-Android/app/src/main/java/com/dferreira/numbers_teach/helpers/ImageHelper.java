@@ -27,7 +27,6 @@ public class ImageHelper {
      * @param resourceId resource id that will be used in the drawable
      * @return the drawable that was read
      */
-    @SuppressWarnings("deprecation")
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static Drawable getDrawable(Context context, int resourceId) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -44,7 +43,6 @@ public class ImageHelper {
      * @param view       The view that is going to get a new background
      * @param background The background to put in the view
      */
-    @SuppressWarnings("deprecation")
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void setBackgroundDrawable(View view, Drawable background) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
@@ -107,7 +105,7 @@ public class ImageHelper {
      *
      * @param drawableOriginal Drawable passed
      */
-    public static LayerDrawable getCardBackground(Context context, Drawable drawableOriginal) {
+    public static LayerDrawable createCardBackground(Context context, Drawable drawableOriginal) {
         Drawable[] layers = new Drawable[2];
         layers[0] = context.getResources().getDrawable(R.drawable.shape_green_strong);
         layers[1] = drawableOriginal;

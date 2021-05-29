@@ -17,7 +17,6 @@ public class ExercisesHelper {
      * @return false : The array does not contain the value passed
      * true : The array contains the value that was passed
      */
-    @SuppressWarnings("ForLoopReplaceableByForEach")
     private static boolean arrayContains(int[] iArray, int value) {
         int arrayLength = iArray.length;
         for (int i = 0; i < arrayLength; i++) {
@@ -36,7 +35,6 @@ public class ExercisesHelper {
      * @param totalSlides total of slides
      * @return Array of indexes
      */
-    @SuppressWarnings("SameParameterValue")
     public static int[] generateIndexes(int min, int max, int totalSlides) {
         int maxNumber = max - min;
         int[] genIndexes = new int[totalSlides];
@@ -71,7 +69,6 @@ public class ExercisesHelper {
      * @param numberOfOptions Number of options show to the user
      * @return Array of index of the selectable options
      */
-    @SuppressWarnings("SameParameterValue")
     public static int[] generateIndexesOptions(int rightIndex, int totalSlides, int numberOfOptions) {
 
         int[] genIndexes = new int[numberOfOptions];

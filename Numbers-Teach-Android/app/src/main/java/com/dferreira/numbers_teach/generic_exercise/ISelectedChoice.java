@@ -13,7 +13,7 @@ public interface ISelectedChoice {
     void setEnteredInDroppableArea();
 
     /**
-     * Indicate that the dragged element have leaved the droppable area
+     * Indicate that the dragged element have leave the droppable area
      */
     void setLeaveDroppableArea();
 

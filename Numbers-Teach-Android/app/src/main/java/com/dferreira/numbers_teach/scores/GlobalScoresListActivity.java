@@ -17,7 +17,6 @@ import com.dferreira.numbers_teach.languages_dashboard.views.UIHelper;
 public class GlobalScoresListActivity extends GenericActivity implements IScoreExerciseActivity {
 
     /*Key of the language parameter passed to the activity*/
-    @SuppressWarnings("WeakerAccess")
     public final static String LANGUAGE_KEY = "language";
 
     /*Language that was selected by the user to learn*/
