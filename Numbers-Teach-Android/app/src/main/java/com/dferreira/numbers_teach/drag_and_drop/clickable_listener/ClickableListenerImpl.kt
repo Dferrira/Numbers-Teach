@@ -16,7 +16,7 @@ class ClickableListenerImpl(
      * @param selectedView The view that was clicked.
      */
     override fun onClick(selectedView: View) {
-        target.triggerViewSelected(selectedView)
+        target.notifyViewSelected(selectedView)
         selectedView.visibility = View.GONE
     }
 }

@@ -33,15 +33,15 @@ class DroppableListener(
             DragEvent.ACTION_DRAG_STARTED -> {
             }
             DragEvent.ACTION_DRAG_ENTERED -> if (dropAction !== DropAction.NOTHING) {
-                target.setEnteredInDroppableArea()
+                target.notifyEnteredInDroppableArea()
             }
             DragEvent.ACTION_DRAG_EXITED -> if (dropAction !== DropAction.NOTHING) {
-                target.setLeaveDroppableArea()
+                target.notifyLeaveDroppableArea()
             }
             DragEvent.ACTION_DROP -> if (dropAction === DropAction.NOTHING) {
                 draggedView.visibility = View.VISIBLE
             } else {
-                target.triggerViewSelected(draggedView)
+                target.notifyViewSelected(draggedView)
             }
             else -> {
             }
