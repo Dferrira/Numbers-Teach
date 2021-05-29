@@ -9,10 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.dferreira.numbers_teach.R
-import com.dferreira.numbers_teach.drag_and_drop.ClickableListener
-import com.dferreira.numbers_teach.drag_and_drop.DraggableListener
-import com.dferreira.numbers_teach.drag_and_drop.DropAction
-import com.dferreira.numbers_teach.drag_and_drop.DroppableListener
+import com.dferreira.numbers_teach.drag_and_drop.draggable_listener.DraggableListener
+import com.dferreira.numbers_teach.drag_and_drop.clickable_listener.ClickableListenerFactory
+import com.dferreira.numbers_teach.drag_and_drop.drag_and_drop_listener.NeutralDragAndDropListenerImpl
 import com.dferreira.numbers_teach.helpers.ImageHelper
 
 /**
@@ -23,7 +22,7 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
     private lateinit var selectableImageList: List<ImageView>
 
     /*Listener that is going to get the click of the user*/
-    private var target: ISelectedChoice? = null
+    private lateinit var target: ISelectedChoice
 
     /*List of paths of the images in the palette*/
     private lateinit var paths: Array<String>
@@ -72,8 +71,8 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
      * Previous to honeycomb api
      */
     private fun setOldEvents() {
-        val clickableListener = ClickableListener()
-        clickableListener.setTarget(target)
+        val clickableListenerFactory = ClickableListenerFactory()
+        val clickableListener = clickableListenerFactory.createClickableListener(target)
         selectableImageList.forEach { selectableImage ->
             selectableImage.setOnClickListener(clickableListener)
         }
@@ -93,9 +92,8 @@ class ImagesPaletteFragment : Fragment(), IImagesPalette {
         }
 
         //The the palette itself as droppable so in this case makes nothing
-        val droppableListener = DroppableListener()
-        droppableListener.setDropAction(DropAction.NOTHING)
-        imagesPalette.setOnDragListener(droppableListener)
+        val neutralDragAndDropListener = NeutralDragAndDropListenerImpl()
+        imagesPalette.setOnDragListener(neutralDragAndDropListener)
     }
 
 

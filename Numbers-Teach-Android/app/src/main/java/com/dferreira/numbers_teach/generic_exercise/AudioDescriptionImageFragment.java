@@ -124,9 +124,13 @@ public class AudioDescriptionImageFragment extends Fragment implements ISelected
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setHoneycombEvents() {
-        DroppableListener droppableListener = new DroppableListener();
-        droppableListener.setDropAction(DropAction.MOVE_CHANGE_BACKGROUND);
-        droppableListener.setTarget(this);
+        ISelectedChoice target = this;
+        DropAction dropAction = DropAction.MOVE_CHANGE_BACKGROUND;
+
+        DroppableListener droppableListener = new DroppableListener(
+                target,
+                dropAction
+        );
 
         this.audioDescriptionTv.setOnDragListener(droppableListener);
         this.selectedImage.setOnDragListener(droppableListener);

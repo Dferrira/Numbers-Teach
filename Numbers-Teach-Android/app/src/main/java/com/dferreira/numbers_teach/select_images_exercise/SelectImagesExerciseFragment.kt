@@ -47,10 +47,26 @@ class SelectImagesExerciseFragment : Fragment() {
         return inflater.inflate(R.layout.select_images_exercise_fragment, container, false)
     }
 
+
+
+    /**
+     * Set the the on click listener to be the fragment
+     */
+
+
+    /**
+     * @param savedInstanceState bundle with data that was saved in on save instance if any
+     */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bindViews()
+        setEvents()
+    }
+
     /**
      * Bind the the views to the respective variables
      */
-    private fun bindViews(view: View) {
+    private fun bindViews() {
         selectedChoice = childFragmentManager.findFragmentById(R.id.audio_description_img_frag) as ISelectedChoice
         labelView =
             childFragmentManager.findFragmentById(R.id.audio_description_img_frag) as ILabeledHandler
@@ -58,20 +74,8 @@ class SelectImagesExerciseFragment : Fragment() {
             childFragmentManager.findFragmentById(R.id.images_palette_fragment) as IImagesPalette
     }
 
-    /**
-     * Set the the on click listener to be the fragment
-     */
     private fun setEvents() {
-        imagesPalette!!.setTarget(selectedChoice!!)
-    }
-
-    /**
-     * @param savedInstanceState bundle with data that was saved in on save instance if any
-     */
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        bindViews(view)
-        setEvents()
+        imagesPalette.setTarget(selectedChoice)
     }
 
     /**
