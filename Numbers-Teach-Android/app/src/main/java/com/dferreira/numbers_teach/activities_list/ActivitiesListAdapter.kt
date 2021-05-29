@@ -19,54 +19,22 @@ import com.dferreira.numbers_teach.preferences.PreferencesActivity
 import com.dferreira.numbers_teach.scores.GlobalScoresListActivity
 import com.dferreira.numbers_teach.select_images_exercise.SelectImagesExerciseActivity
 import com.dferreira.numbers_teach.ui_models.ActivityItem
+import com.dferreira.numbers_teach.ui_models.ActivityItemFactory
 
 /**
  * List adapter that is going to be responsible for provide a list of activities to the user learn the language
  */
-class ActivitiesListAdapter(activity: Activity, language: String) :
+class ActivitiesListAdapter(
+        private val activity: Activity,
+        private val language: String) :
     ArrayAdapter<ViewHolder?>(activity, R.layout.activity_item),
     View.OnClickListener {
     private val activities: List<ActivityItem>
-    private val inflater: LayoutInflater
-    private val language: String
-    private val activity: Activity
+    private val inflater: LayoutInflater = context
+        .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private var menu: Menu? = null
 
-    private fun createLesson(): ActivityItem {
-        return ActivityItem(
-            R.mipmap.classroom,
-            R.string.lesson,
-            LessonActivity::class.java,
-            false
-        )
-    }
 
-    private fun createExercises(): ActivityItem {
-        return ActivityItem(
-            R.mipmap.exercises,
-            R.string.exercises,
-            SelectImagesExerciseActivity::class.java,
-            true
-        )
-    }
-
-    private fun createResults(): ActivityItem {
-        return ActivityItem(
-            R.mipmap.leaderboard,
-            R.string.results,
-            GlobalScoresListActivity::class.java,
-            false
-        )
-    }
-
-    private fun createPreferences(): ActivityItem {
-        return ActivityItem(
-            R.mipmap.ic_settings_black_48dp,
-            R.string.preferences,
-            PreferencesActivity::class.java,
-            false
-        )
-    }
 
     /**
      * Get a View that displays the data at the specified position in the data set. You can either
@@ -155,23 +123,9 @@ class ActivitiesListAdapter(activity: Activity, language: String) :
     }
 
     /**
-     * @param activity Context where the list of activities will be used
-     * @param language Language that was selected by the user to use
      */
     init {
-        inflater = context
-            .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        this.language = language
-        this.activity = activity
-        val lesson = createLesson()
-        val exercises = createExercises()
-        val scores = createResults()
-        val preferences = createPreferences()
-        activities = listOf(
-            lesson,
-            exercises,
-            scores,
-            preferences
-        )
+        val activityItemFactory = ActivityItemFactory()
+        activities = activityItemFactory.createActivityItemList()
     }
 }

@@ -26,7 +26,7 @@ class SelectImagesExerciseBroadcastReceiver(
      *
      * @param label Label to set in the UI corresponding to the right option
      */
-    private fun setLabelView(label: String?) {
+    private fun setLabelView(label: String) {
         labeledView.setLabel(label)
     }
 
