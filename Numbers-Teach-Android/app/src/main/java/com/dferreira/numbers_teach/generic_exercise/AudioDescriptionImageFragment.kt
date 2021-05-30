@@ -20,7 +20,6 @@ import com.dferreira.numbers_teach.generic.ui.IExerciseActivity
 import com.dferreira.numbers_teach.generic.ui.ILabeledHandler
 import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProvider
 import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProviderFactory
-import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProviderImpl
 import com.dferreira.numbers_teach.helpers.ErrorString
 import com.dferreira.numbers_teach.helpers.ImageHelper
 
@@ -89,8 +88,8 @@ class AudioDescriptionImageFragment : Fragment(),
      */
     private fun hideUIViews() {
         if (activity is IExerciseActivity) {
-            val activity = activity as IExerciseActivity?
-            val exerciseType = activity!!.exerciseType
+            val activity = activity as IExerciseActivity
+            val exerciseType = activity.exerciseType()
             val exerciseDescriptionFactory = ExerciseTypeDescriptionFactory()
             val (_, isWithAudio, withText) = exerciseDescriptionFactory.createDescription(
                 exerciseType

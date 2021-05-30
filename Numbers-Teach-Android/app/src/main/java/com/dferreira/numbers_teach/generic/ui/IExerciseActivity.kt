@@ -8,8 +8,5 @@ import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType
  */
 interface IExerciseActivity : ILanguageActivity {
 
-    /**
-     * @return the type of exercise
-     */
-    val exerciseType: ExerciseType
+    fun exerciseType(): ExerciseType
 }

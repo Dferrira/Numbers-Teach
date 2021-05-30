@@ -134,7 +134,7 @@ public class LessonFragment extends Fragment implements
         super.onResume();
 
         if (getActivity() instanceof ILanguageActivity) {
-            String language = ((ILanguageActivity) getActivity()).getLanguagePrefix();
+            String language = ((ILanguageActivity) getActivity()).languagePrefix();
             startAudioService(getActivity(), language);
 
             this.receiver = new LessonBroadcastReceiver(getActivity(), this.viewFlipper, this.sequenceFragmentHandler, this.playHandler);

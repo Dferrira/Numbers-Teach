@@ -130,24 +130,23 @@ class LessonMenuFragment : Fragment(), View.OnClickListener,
      * introduction delegate
      */
     override fun onClick(v: View) {
-        if (menuDelegator == null) {
-            return
-        }
+        val localMenuDelegator = menuDelegator ?: return
+
         when (v.id) {
             R.id.againBtn -> {
-                menuDelegator!!.reload()
+                localMenuDelegator.reload()
             }
             R.id.backBtn -> {
 
                 // Back
-                menuDelegator!!.previous()
+                localMenuDelegator.previous()
             }
             R.id.playBtn, R.id.pauseBtn -> {
-                menuDelegator!!.playOrPause()
+                localMenuDelegator.playOrPause()
                 updatePlayPauseButtons()
             }
             R.id.nextBtn -> {
-                menuDelegator!!.forward()
+                localMenuDelegator.forward()
             }
             else -> Log.d(TAG, ErrorString.CLICK_OF_BUTTON_NOT_HANDLED)
         }
