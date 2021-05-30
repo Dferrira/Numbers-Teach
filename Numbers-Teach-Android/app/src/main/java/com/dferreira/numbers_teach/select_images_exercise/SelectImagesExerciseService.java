@@ -16,7 +16,8 @@ import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType;
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescription;
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescriptionFactory;
 import com.dferreira.numbers_teach.generic_exercise.ExerciseMsgType;
-import com.dferreira.numbers_teach.generic_exercise.UserActionMsgProvider;
+import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProvider;
+import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProviderFactory;
 import com.dferreira.numbers_teach.helpers.ExercisesHelper;
 
 import java.util.Date;
@@ -122,6 +123,8 @@ public class SelectImagesExerciseService extends IntentService {
      */
     private final IGenericStudySet studySet;
 
+    private final UserActionMsgProvider userActionMsgProvider;
+
     /**
      * Starts the sequence audio handler
      */
@@ -138,7 +141,7 @@ public class SelectImagesExerciseService extends IntentService {
         this.lastIndexPlayed = -1;
         this.indexes = ExercisesHelper.generateIndexes(0, NUMBER_OF_SLIDES, NUMBER_OF_SLIDES);
         this.studySet = NumberTeachApplication.Companion.getStudySetInstance();
-
+        userActionMsgProvider = UserActionMsgProviderFactory.INSTANCE.createUserActionMsgProvider();
     }
 
     /**
@@ -223,7 +226,7 @@ public class SelectImagesExerciseService extends IntentService {
      * @return The audio that should play
      */
     private int evaluateUserChoice(Intent intent, int playingIndex) {
-        Object selectedTag = UserActionMsgProvider.getTag(intent);
+        Object selectedTag = userActionMsgProvider.getTag(intent);
         Object currentTag = ExercisesHelper.getTag(indexes[playingIndex]);
         if (selectedTag.equals(currentTag)) {
             sendResultOfUserChoice(true);
@@ -245,7 +248,7 @@ public class SelectImagesExerciseService extends IntentService {
      * @return THe index that should play
      */
     private synchronized int handleUserIO(int playingIndex) {
-        Intent intent = UserActionMsgProvider.getInstance().popIntent();
+        Intent intent = userActionMsgProvider.popIntent();
         if (intent == null) {
             //Nothing to do is going to wait
             try {
@@ -254,7 +257,7 @@ public class SelectImagesExerciseService extends IntentService {
             }
             return playingIndex;
         } else {
-            switch (UserActionMsgProvider.getMsgType(intent)) {
+            switch (userActionMsgProvider.getMsgType(intent)) {
                 case OPTION_SELECT:
                     return evaluateUserChoice(intent, playingIndex);
                 case REPLAY_AUDIO:
@@ -302,7 +305,7 @@ public class SelectImagesExerciseService extends IntentService {
             if (playingIndex == this.totalSlides) {
                 String finalScoreStr = this.getResources().getString(R.string.final_score);
                 saveLastResultInDatabase();
-                sendShowScore(finalScoreStr + Integer.toString(score));
+                sendShowScore(finalScoreStr + score);
                 stopSelf();
                 break;
             }

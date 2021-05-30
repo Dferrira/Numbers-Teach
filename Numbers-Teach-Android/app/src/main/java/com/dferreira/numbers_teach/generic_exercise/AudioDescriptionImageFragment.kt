@@ -18,6 +18,9 @@ import com.dferreira.numbers_teach.drag_and_drop.DroppableListener
 import com.dferreira.numbers_teach.exercise_icons.models.exercise_type_description.ExerciseTypeDescriptionFactory
 import com.dferreira.numbers_teach.generic.ui.IExerciseActivity
 import com.dferreira.numbers_teach.generic.ui.ILabeledHandler
+import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProvider
+import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProviderFactory
+import com.dferreira.numbers_teach.generic_exercise.user_action_Message_provider.UserActionMsgProviderImpl
 import com.dferreira.numbers_teach.helpers.ErrorString
 import com.dferreira.numbers_teach.helpers.ImageHelper
 
@@ -47,6 +50,12 @@ class AudioDescriptionImageFragment : Fragment(),
 
     /*Indicates if should or not play audio to the user*/
     private var withAudio = false
+
+    private val userActionMsgProvider: UserActionMsgProvider
+
+    init {
+        userActionMsgProvider = UserActionMsgProviderFactory.createUserActionMsgProvider()
+    }
 
     /**
      * Create of inflate  the Fragment's UI, and return it.
@@ -138,7 +147,7 @@ class AudioDescriptionImageFragment : Fragment(),
         //If the user clicks in description gets the audio again
         if (withAudio) {
             audioDescriptionTv.setOnClickListener {
-                UserActionMsgProvider.getInstance().triggerReplay()
+                userActionMsgProvider.triggerReplay()
             }
         }
     }
@@ -190,7 +199,7 @@ class AudioDescriptionImageFragment : Fragment(),
                 Log.d(TAG, ErrorString.SOMETHING_GOES_WRONG)
             } else {
                 ImageHelper.setBackgroundDrawable(selectedImage, selectedLayer)
-                UserActionMsgProvider.getInstance().triggerOptionSelected(selectedView.tag)
+                userActionMsgProvider.triggerOptionSelected(selectedView.tag)
             }
         }
     }
