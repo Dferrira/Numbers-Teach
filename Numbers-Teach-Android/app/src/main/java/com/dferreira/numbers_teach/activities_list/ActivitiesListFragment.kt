@@ -5,7 +5,6 @@ import android.view.*
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.dferreira.numbers_teach.R
-import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType
 import com.dferreira.numbers_teach.exercise_icons.ui.menu_item_to_exercise_type_converter.IMenuItemToExerciseTypeConverter
 import com.dferreira.numbers_teach.exercise_icons.ui.menu_item_to_exercise_type_converter.MenuItemToExerciseTypeConverter
 import com.dferreira.numbers_teach.generic.ui.ILanguageActivity
@@ -16,9 +15,9 @@ import com.dferreira.numbers_teach.select_images_exercise.SelectImagesExerciseAc
  * chosen language
  */
 class ActivitiesListFragment : Fragment() {
-    private var listOfActivities: ListView? = null
+    private lateinit var listOfActivities: ListView
     private var activitiesListAdapter: ActivitiesListAdapter? = null
-    private var menuItemToExerciseTypeConverter: IMenuItemToExerciseTypeConverter? = null
+    private lateinit var menuItemToExerciseTypeConverter: IMenuItemToExerciseTypeConverter
 
     /**
      * Create of inflate  the Fragment's UI, and return it.
@@ -40,25 +39,28 @@ class ActivitiesListFragment : Fragment() {
     /**
      * Bind the the views to the respective variables
      */
-    private fun bindViews() {
-        listOfActivities = activity!!.findViewById<View>(R.id.list_of_activities) as ListView
+    private fun bindViews(view: View) {
+        listOfActivities = view.findViewById(R.id.list_of_activities)
     }
 
     /**
      * Set the the on click listener to be the fragment
      */
     private fun setEvents() {
-        activitiesListAdapter = ActivitiesListAdapter(activity!!, language!!)
-        listOfActivities!!.adapter = activitiesListAdapter
+        val currentActivity = requireActivity()
+        val language = languagePrefix()
+
+        activitiesListAdapter = ActivitiesListAdapter(currentActivity, language)
+        listOfActivities.adapter = activitiesListAdapter
     }
 
     /**
      * @param savedInstanceState bundle with data that was saved in on save instance if any
      */
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         super.setHasOptionsMenu(true)
-        bindViews()
+        bindViews(view)
         setEvents()
     }
 
@@ -81,25 +83,18 @@ class ActivitiesListFragment : Fragment() {
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
-        val exerciseType = menuItemToExerciseTypeConverter!!.toExerciseType(item)
-        return if (exerciseType == null) {
-            super.onOptionsItemSelected(item)
-        } else {
-            SelectImagesExerciseActivity.startSelectImagesExerciseActivity(
-                context,
-                language, exerciseType
-            )
-            true
-        }
+        val language = languagePrefix()
+        val exerciseType = menuItemToExerciseTypeConverter.toExerciseType(item)
+        SelectImagesExerciseActivity.startSelectImagesExerciseActivity(
+            requireContext(),
+            language,
+            exerciseType
+        )
+        return true
     }
 
     /**
      * @return The language that the user selected to learn
      */
-    private val language: String?
-        private get() = if (activity is ILanguageActivity) {
-            (activity as ILanguageActivity?)!!.languagePrefix
-        } else {
-            null
-        }
+    private fun languagePrefix(): String = (activity as ILanguageActivity).languagePrefix()
 }

@@ -48,7 +48,7 @@ public class LessonActivity extends FragmentActivity implements ILanguageActivit
      * Return the language selected by the user know by the activity
      */
     @Override
-    public String getLanguagePrefix() {
+    public String languagePrefix() {
         return this.languageSelected;
     }
 }

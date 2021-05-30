@@ -40,8 +40,7 @@ class ActivitiesListActivity : GenericActivity(), ILanguageActivity {
     /**
      * Return the language selected by the user know by the activity
      */
-    override val languagePrefix: String
-        get() = languageSelected!!
+    override fun languagePrefix(): String = languageSelected
 
     /**
      * Inflates the existing menu

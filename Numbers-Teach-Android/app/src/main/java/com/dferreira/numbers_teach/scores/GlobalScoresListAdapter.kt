@@ -21,12 +21,14 @@ import com.dferreira.numbersteach.datalayer.model.ExerciseResult
 /**
  * List adapter that is going to be responsible for provide a list of activities to the user learn the language
  */
-class GlobalScoresListAdapter(activity: Activity?, language: String?) :
-    ArrayAdapter<ExerciseScoreIconHolder?>(activity!!, R.layout.activity_item),
+class GlobalScoresListAdapter(
+        val activity: Activity,
+        val language: String
+) :
+    ArrayAdapter<ExerciseScoreIconHolder?>(activity, R.layout.activity_item),
     OnItemClickListener {
     private val scores: List<ExerciseResult>
     private val inflater: LayoutInflater
-    private val activity: Activity?
 
     /**
      * Get a View that displays the data at the specified position in the data set. You can either
@@ -100,16 +102,14 @@ class GlobalScoresListAdapter(activity: Activity?, language: String?) :
      * @param id       The row id of the item that was clicked.
      */
     override fun onItemClick(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
-        val exerciseResult = scores!![position]
-        if (exerciseResult != null && activity != null) {
-            if (activity is IScoreExerciseActivity) {
-                val scoreExerciseActivity = activity as IScoreExerciseActivity
-                scoreExerciseActivity.setExerciseProperties(
-                    exerciseResult.activity,
-                    exerciseResult.getExerciseType(),
-                    view
-                )
-            }
+        val exerciseResult = scores[position]
+        if (activity is IScoreExerciseActivity) {
+            val scoreExerciseActivity = activity as IScoreExerciseActivity
+            scoreExerciseActivity.setExerciseProperties(
+                exerciseResult.activity,
+                exerciseResult.getExerciseType(),
+                view
+            )
         }
     }
 
@@ -122,10 +122,7 @@ class GlobalScoresListAdapter(activity: Activity?, language: String?) :
         return scores.size
     }
 
-    /**
-     * @param activity Context where the list of activities will be used
-     * @param language Language that was selected by the user to use
-     */
+
     init {
         inflater = context
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -134,7 +131,6 @@ class GlobalScoresListAdapter(activity: Activity?, language: String?) :
             exerciseResultRepositoryFactory.createExerciseResultRepository(
                 context
             )
-        scores = exerciseResultRepository.getGlobalScoresList(language!!)
-        this.activity = activity
+        scores = exerciseResultRepository.getGlobalScoresList(language)
     }
 }

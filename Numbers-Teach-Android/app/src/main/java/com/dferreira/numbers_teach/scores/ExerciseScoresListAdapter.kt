@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.dferreira.numbers_teach.R
-import com.dferreira.numbers_teach.data_layer.repositories.ExerciseResultRepository
 import com.dferreira.numbers_teach.data_layer.repositories.ExerciseResultRepositoryFactory
 import com.dferreira.numbers_teach.exercise_icons.models.ExerciseType
 import com.dferreira.numbersteach.datalayer.model.ExerciseResult

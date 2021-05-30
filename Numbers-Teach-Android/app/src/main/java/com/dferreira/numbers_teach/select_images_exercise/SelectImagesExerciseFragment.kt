@@ -85,8 +85,9 @@ class SelectImagesExerciseFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val activity = requireActivity()
-        val language = (activity as IExerciseActivity?)!!.languagePrefix
-        val exerciseType = (activity as IExerciseActivity?)!!.exerciseType
+        val exerciseActivity = (activity as IExerciseActivity)
+        val language = exerciseActivity.languagePrefix()
+        val exerciseType = exerciseActivity.exerciseType()
         startAudioService(activity, language, exerciseType)
 
         receiver = createReceiver(activity)
