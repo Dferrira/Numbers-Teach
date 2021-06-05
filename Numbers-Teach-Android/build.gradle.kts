@@ -2,7 +2,7 @@
 
 buildscript {
     val kotlin_version by extra("1.5.0")
-    val kotlin_gradle_plugin by extra("1.5.0")
+    val kotlinGradlePlugin by extra("1.5.0")
     val build_tools_version by extra("30.0.3")
     val material_design_version by extra("1.3.0")
     val core_version by extra("1.5.0")
@@ -12,7 +12,7 @@ buildscript {
     val jvm_target by extra("1.8")
     val compile_sdk_version by extra(30)
     val target_sdk_version by extra(30)
-    val sql_delight_version by extra("1.5.0")
+    val sqlDelightVersion by extra("1.5.0")
 
 
 
@@ -24,8 +24,8 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.1.0-alpha01")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_gradle_plugin")
-        classpath("com.squareup.sqldelight:gradle-plugin:$sql_delight_version")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePlugin")
+        classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

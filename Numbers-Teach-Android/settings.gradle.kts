@@ -1,0 +1,5 @@
+include (":app")
+include (":numbers")
+include (":languages_dashboard")
+include (":exercise_icons")
+include (":commons")
