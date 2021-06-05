@@ -46,7 +46,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:${rootProject.extra["preference_version"]}")
     implementation("com.google.android.material:material:${rootProject.extra["material_design_version"]}")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.0")
-    implementation("com.squareup.sqldelight:android-driver:${rootProject.extra["sql_delight_version"]}")
+    implementation("com.squareup.sqldelight:android-driver:${rootProject.extra["sqlDelightVersion"]}")
     implementation(project(":languages_dashboard"))
     implementation(project(":exercise_icons"))
     implementation(project(":commons"))
@@ -54,7 +54,7 @@ dependencies {
     implementation("androidx.core:core-ktx:${rootProject.extra["core_version"]}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.extra["kotlin_version"]}")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("com.squareup.sqldelight:sqlite-driver:${rootProject.extra["sql_delight_version"]}")
+    testImplementation("com.squareup.sqldelight:sqlite-driver:${rootProject.extra["sqlDelightVersion"]}")
 
 
 }
