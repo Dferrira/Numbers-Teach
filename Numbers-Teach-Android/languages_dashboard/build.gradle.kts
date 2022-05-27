@@ -6,7 +6,6 @@ plugins {
 
 android {
     compileSdk = rootProject.extra["compile_sdk_version"] as Int
-    buildToolsVersion = rootProject.extra["build_tools_version"] as String
 
     defaultConfig {
         minSdk = rootProject.extra["minimum_sdk_version"] as Int
